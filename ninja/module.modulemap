@@ -1,6 +1,0 @@
-module ninjaLib {
-    header "ninjaLib.h"
-    header "callback.h"
-    link "ninjaLib"
-    export *
-}

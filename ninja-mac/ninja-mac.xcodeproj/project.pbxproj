@@ -7,71 +7,87 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		693CB89F2768AA6200AD9706 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693CB89E2768AA6200AD9706 /* AppDelegate.swift */; };
-		693CB8A12768AA6200AD9706 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 693CB8A02768AA6200AD9706 /* ViewController.swift */; };
-		693CB8A42768AA6200AD9706 /* ninja.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 693CB8A22768AA6200AD9706 /* ninja.xcdatamodeld */; };
-		693CB8A62768AA6300AD9706 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 693CB8A52768AA6300AD9706 /* Assets.xcassets */; };
-		693CB8A92768AA6300AD9706 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693CB8A72768AA6300AD9706 /* Main.storyboard */; };
+		698CE969278BFA31009D8074 /* ninja_macApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698CE968278BFA31009D8074 /* ninja_macApp.swift */; };
+		698CE96B278BFA31009D8074 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698CE96A278BFA31009D8074 /* ContentView.swift */; };
+		698CE96D278BFA32009D8074 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 698CE96C278BFA32009D8074 /* Assets.xcassets */; };
+		698CE970278BFA32009D8074 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 698CE96F278BFA32009D8074 /* Preview Assets.xcassets */; };
+		698CE972278BFA32009D8074 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698CE971278BFA32009D8074 /* Persistence.swift */; };
+		698CE975278BFA32009D8074 /* ninja_mac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 698CE973278BFA32009D8074 /* ninja_mac.xcdatamodeld */; };
+		698CE97F278BFEBB009D8074 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698CE97E278BFEBB009D8074 /* utils.swift */; };
+		698CE981278BFFCD009D8074 /* ninjaLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 698CE97D278BFCB5009D8074 /* ninjaLib.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6928707B278AE58E00146A14 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		6928707F278AECC600146A14 /* ninjaLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = ninjaLib.a; sourceTree = "<group>"; };
-		693CB89B2768AA6200AD9706 /* ninja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ninja.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		693CB89E2768AA6200AD9706 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		693CB8A02768AA6200AD9706 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		693CB8A32768AA6200AD9706 /* ninja.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ninja.xcdatamodel; sourceTree = "<group>"; };
-		693CB8A52768AA6300AD9706 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		693CB8A82768AA6300AD9706 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		693CB8AA2768AA6300AD9706 /* ninja.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ninja.entitlements; sourceTree = "<group>"; };
+		698CE965278BFA31009D8074 /* ninja-mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ninja-mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		698CE968278BFA31009D8074 /* ninja_macApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ninja_macApp.swift; sourceTree = "<group>"; };
+		698CE96A278BFA31009D8074 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		698CE96C278BFA32009D8074 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		698CE96F278BFA32009D8074 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		698CE971278BFA32009D8074 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		698CE974278BFA32009D8074 /* ninja_mac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ninja_mac.xcdatamodel; sourceTree = "<group>"; };
+		698CE976278BFA32009D8074 /* ninja_mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ninja_mac.entitlements; sourceTree = "<group>"; };
+		698CE97D278BFCB5009D8074 /* ninjaLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = ninjaLib.a; sourceTree = "<group>"; };
+		698CE97E278BFEBB009D8074 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
+		698CE980278BFF4F009D8074 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		693CB8982768AA6200AD9706 /* Frameworks */ = {
+		698CE962278BFA31009D8074 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				698CE981278BFFCD009D8074 /* ninjaLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		693CB8922768AA6200AD9706 = {
+		698CE95C278BFA31009D8074 = {
 			isa = PBXGroup;
 			children = (
-				6928707B278AE58E00146A14 /* module.modulemap */,
-				693CB89D2768AA6200AD9706 /* ninja */,
-				693CB89C2768AA6200AD9706 /* Products */,
-				693CB8B12768ACC500AD9706 /* Frameworks */,
+				698CE980278BFF4F009D8074 /* module.modulemap */,
+				698CE967278BFA31009D8074 /* ninja-mac */,
+				698CE966278BFA31009D8074 /* Products */,
+				698CE97C278BFCB5009D8074 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		693CB89C2768AA6200AD9706 /* Products */ = {
+		698CE966278BFA31009D8074 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				693CB89B2768AA6200AD9706 /* ninja.app */,
+				698CE965278BFA31009D8074 /* ninja-mac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		693CB89D2768AA6200AD9706 /* ninja */ = {
+		698CE967278BFA31009D8074 /* ninja-mac */ = {
 			isa = PBXGroup;
 			children = (
-				693CB89E2768AA6200AD9706 /* AppDelegate.swift */,
-				693CB8A02768AA6200AD9706 /* ViewController.swift */,
-				693CB8A52768AA6300AD9706 /* Assets.xcassets */,
-				693CB8A72768AA6300AD9706 /* Main.storyboard */,
-				693CB8AA2768AA6300AD9706 /* ninja.entitlements */,
-				693CB8A22768AA6200AD9706 /* ninja.xcdatamodeld */,
+				698CE968278BFA31009D8074 /* ninja_macApp.swift */,
+				698CE97E278BFEBB009D8074 /* utils.swift */,
+				698CE96A278BFA31009D8074 /* ContentView.swift */,
+				698CE96C278BFA32009D8074 /* Assets.xcassets */,
+				698CE971278BFA32009D8074 /* Persistence.swift */,
+				698CE976278BFA32009D8074 /* ninja_mac.entitlements */,
+				698CE973278BFA32009D8074 /* ninja_mac.xcdatamodeld */,
+				698CE96E278BFA32009D8074 /* Preview Content */,
 			);
-			path = ninja;
+			path = "ninja-mac";
 			sourceTree = "<group>";
 		};
-		693CB8B12768ACC500AD9706 /* Frameworks */ = {
+		698CE96E278BFA32009D8074 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				6928707F278AECC600146A14 /* ninjaLib.a */,
+				698CE96F278BFA32009D8074 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		698CE97C278BFCB5009D8074 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				698CE97D278BFCB5009D8074 /* ninjaLib.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -79,39 +95,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		693CB89A2768AA6200AD9706 /* ninja */ = {
+		698CE964278BFA31009D8074 /* ninja-mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 693CB8AD2768AA6300AD9706 /* Build configuration list for PBXNativeTarget "ninja" */;
+			buildConfigurationList = 698CE979278BFA32009D8074 /* Build configuration list for PBXNativeTarget "ninja-mac" */;
 			buildPhases = (
-				693CB8972768AA6200AD9706 /* Sources */,
-				693CB8982768AA6200AD9706 /* Frameworks */,
-				693CB8992768AA6200AD9706 /* Resources */,
+				698CE961278BFA31009D8074 /* Sources */,
+				698CE962278BFA31009D8074 /* Frameworks */,
+				698CE963278BFA31009D8074 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ninja;
-			productName = ninja;
-			productReference = 693CB89B2768AA6200AD9706 /* ninja.app */;
+			name = "ninja-mac";
+			productName = "ninja-mac";
+			productReference = 698CE965278BFA31009D8074 /* ninja-mac.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		693CB8932768AA6200AD9706 /* Project object */ = {
+		698CE95D278BFA31009D8074 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
-					693CB89A2768AA6200AD9706 = {
-						CreatedOnToolsVersion = 13.2;
+					698CE964278BFA31009D8074 = {
+						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
 			};
-			buildConfigurationList = 693CB8962768AA6200AD9706 /* Build configuration list for PBXProject "ninja" */;
+			buildConfigurationList = 698CE960278BFA31009D8074 /* Build configuration list for PBXProject "ninja-mac" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -119,54 +135,45 @@
 				en,
 				Base,
 			);
-			mainGroup = 693CB8922768AA6200AD9706;
-			productRefGroup = 693CB89C2768AA6200AD9706 /* Products */;
+			mainGroup = 698CE95C278BFA31009D8074;
+			productRefGroup = 698CE966278BFA31009D8074 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				693CB89A2768AA6200AD9706 /* ninja */,
+				698CE964278BFA31009D8074 /* ninja-mac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		693CB8992768AA6200AD9706 /* Resources */ = {
+		698CE963278BFA31009D8074 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				693CB8A62768AA6300AD9706 /* Assets.xcassets in Resources */,
-				693CB8A92768AA6300AD9706 /* Main.storyboard in Resources */,
+				698CE970278BFA32009D8074 /* Preview Assets.xcassets in Resources */,
+				698CE96D278BFA32009D8074 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		693CB8972768AA6200AD9706 /* Sources */ = {
+		698CE961278BFA31009D8074 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				693CB8A42768AA6200AD9706 /* ninja.xcdatamodeld in Sources */,
-				693CB8A12768AA6200AD9706 /* ViewController.swift in Sources */,
-				693CB89F2768AA6200AD9706 /* AppDelegate.swift in Sources */,
+				698CE97F278BFEBB009D8074 /* utils.swift in Sources */,
+				698CE972278BFA32009D8074 /* Persistence.swift in Sources */,
+				698CE96B278BFA31009D8074 /* ContentView.swift in Sources */,
+				698CE975278BFA32009D8074 /* ninja_mac.xcdatamodeld in Sources */,
+				698CE969278BFA31009D8074 /* ninja_macApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		693CB8A72768AA6300AD9706 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				693CB8A82768AA6300AD9706 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		693CB8AB2768AA6300AD9706 /* Debug */ = {
+		698CE977278BFA32009D8074 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -217,7 +224,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -227,7 +234,7 @@
 			};
 			name = Debug;
 		};
-		693CB8AC2768AA6300AD9706 /* Release */ = {
+		698CE978278BFA32009D8074 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -272,7 +279,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -281,31 +288,27 @@
 			};
 			name = Release;
 		};
-		693CB8AE2768AA6300AD9706 /* Debug */ = {
+		698CE97A278BFA32009D8074 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ninja/ninja.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "ninja-mac/ninja_mac.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_ASSET_PATHS = "\"ninja-mac/Preview Content\"";
 				DEVELOPMENT_TEAM = 6A53CAFMZ9;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ninjahome.ninja-mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -315,31 +318,27 @@
 			};
 			name = Debug;
 		};
-		693CB8AF2768AA6300AD9706 /* Release */ = {
+		698CE97B278BFA32009D8074 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ninja/ninja.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "ninja-mac/ninja_mac.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_ASSET_PATHS = "\"ninja-mac/Preview Content\"";
 				DEVELOPMENT_TEAM = 6A53CAFMZ9;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ninjahome.ninja-mac";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,20 +351,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		693CB8962768AA6200AD9706 /* Build configuration list for PBXProject "ninja" */ = {
+		698CE960278BFA31009D8074 /* Build configuration list for PBXProject "ninja-mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				693CB8AB2768AA6300AD9706 /* Debug */,
-				693CB8AC2768AA6300AD9706 /* Release */,
+				698CE977278BFA32009D8074 /* Debug */,
+				698CE978278BFA32009D8074 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		693CB8AD2768AA6300AD9706 /* Build configuration list for PBXNativeTarget "ninja" */ = {
+		698CE979278BFA32009D8074 /* Build configuration list for PBXNativeTarget "ninja-mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				693CB8AE2768AA6300AD9706 /* Debug */,
-				693CB8AF2768AA6300AD9706 /* Release */,
+				698CE97A278BFA32009D8074 /* Debug */,
+				698CE97B278BFA32009D8074 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -373,17 +372,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		693CB8A22768AA6200AD9706 /* ninja.xcdatamodeld */ = {
+		698CE973278BFA32009D8074 /* ninja_mac.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				693CB8A32768AA6200AD9706 /* ninja.xcdatamodel */,
+				698CE974278BFA32009D8074 /* ninja_mac.xcdatamodel */,
 			);
-			currentVersion = 693CB8A32768AA6200AD9706 /* ninja.xcdatamodel */;
-			path = ninja.xcdatamodeld;
+			currentVersion = 698CE974278BFA32009D8074 /* ninja_mac.xcdatamodel */;
+			path = ninja_mac.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = 693CB8932768AA6200AD9706 /* Project object */;
+	rootObject = 698CE95D278BFA31009D8074 /* Project object */;
 }

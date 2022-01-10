@@ -35,7 +35,9 @@ struct ContentView: View {
                     }
                 }
             }
-            Text("Select an item")
+                Text("Select an item")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         }
     }
 

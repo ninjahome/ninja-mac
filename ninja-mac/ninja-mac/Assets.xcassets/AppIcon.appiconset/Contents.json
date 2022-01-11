@@ -6,7 +6,7 @@
       "size" : "16x16"
     },
     {
-      "filename" : "忍者-7.png",
+      "filename" : "ninja_256-4.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "16x16"
@@ -17,7 +17,7 @@
       "size" : "32x32"
     },
     {
-      "filename" : "忍者-6.png",
+      "filename" : "ninja_256-3.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "32x32"
@@ -28,7 +28,7 @@
       "size" : "128x128"
     },
     {
-      "filename" : "忍者-4.png",
+      "filename" : "ninja_256-2.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "128x128"
@@ -39,7 +39,7 @@
       "size" : "256x256"
     },
     {
-      "filename" : "忍者-2.png",
+      "filename" : "ninja_256-1.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
@@ -50,7 +50,7 @@
       "size" : "512x512"
     },
     {
-      "filename" : "忍者.png",
+      "filename" : "ninja_256.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"

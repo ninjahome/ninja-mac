@@ -15,6 +15,11 @@
 		698CE975278BFA32009D8074 /* ninja_mac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 698CE973278BFA32009D8074 /* ninja_mac.xcdatamodeld */; };
 		698CE97F278BFEBB009D8074 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698CE97E278BFEBB009D8074 /* utils.swift */; };
 		698CE981278BFFCD009D8074 /* ninjaLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 698CE97D278BFCB5009D8074 /* ninjaLib.a */; };
+		69BC6672278D808C00EB2E2C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6671278D808C00EB2E2C /* ChatMessage.swift */; };
+		69BC6676278D851400EB2E2C /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6675278D851400EB2E2C /* AvatarView.swift */; };
+		69BC6678278D8CCA00EB2E2C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6677278D8CCA00EB2E2C /* Contact.swift */; };
+		69BC667A278D8CE200EB2E2C /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6679278D8CE200EB2E2C /* Setting.swift */; };
+		69BC667C278D8F2200EB2E2C /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC667B278D8F2200EB2E2C /* SideBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +34,11 @@
 		698CE97D278BFCB5009D8074 /* ninjaLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = ninjaLib.a; sourceTree = "<group>"; };
 		698CE97E278BFEBB009D8074 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		698CE980278BFF4F009D8074 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		69BC6671278D808C00EB2E2C /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		69BC6675278D851400EB2E2C /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		69BC6677278D8CCA00EB2E2C /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		69BC6679278D8CE200EB2E2C /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		69BC667B278D8F2200EB2E2C /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +75,13 @@
 			isa = PBXGroup;
 			children = (
 				698CE968278BFA31009D8074 /* ninja_macApp.swift */,
+				69BC6675278D851400EB2E2C /* AvatarView.swift */,
 				698CE97E278BFEBB009D8074 /* utils.swift */,
 				698CE96A278BFA31009D8074 /* ContentView.swift */,
+				69BC6671278D808C00EB2E2C /* ChatMessage.swift */,
+				69BC6677278D8CCA00EB2E2C /* Contact.swift */,
+				69BC667B278D8F2200EB2E2C /* SideBar.swift */,
+				69BC6679278D8CE200EB2E2C /* Setting.swift */,
 				698CE96C278BFA32009D8074 /* Assets.xcassets */,
 				698CE971278BFA32009D8074 /* Persistence.swift */,
 				698CE976278BFA32009D8074 /* ninja_mac.entitlements */,
@@ -162,11 +177,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69BC667C278D8F2200EB2E2C /* SideBar.swift in Sources */,
 				698CE97F278BFEBB009D8074 /* utils.swift in Sources */,
 				698CE972278BFA32009D8074 /* Persistence.swift in Sources */,
 				698CE96B278BFA31009D8074 /* ContentView.swift in Sources */,
+				69BC6672278D808C00EB2E2C /* ChatMessage.swift in Sources */,
+				69BC6678278D8CCA00EB2E2C /* Contact.swift in Sources */,
+				69BC6676278D851400EB2E2C /* AvatarView.swift in Sources */,
 				698CE975278BFA32009D8074 /* ninja_mac.xcdatamodeld in Sources */,
 				698CE969278BFA31009D8074 /* ninja_macApp.swift in Sources */,
+				69BC667A278D8CE200EB2E2C /* Setting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,9 +16,11 @@ struct ninja_macApp: App {
         }
     
         var body: some Scene {
-            
                 WindowGroup {
+                        HStack{
+                        SideBar()
                         ContentView()
+                        }
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 }
         }

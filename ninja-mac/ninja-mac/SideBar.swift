@@ -15,26 +15,27 @@ struct SideBar: View {
                             Circle().stroke(.purple, lineWidth: 2)
                     }
                     .shadow(radius: 4)
-                    
+                    Group{
                     Button(action: {
                             
                     }) {
-                                    
-                            Image("message_normal")
-                            
-                    }
+                            Image("message_normal").resizable()                    }
                             
                     Button(action: {
                             
                     }) {
-                            Image("contact_normal")
+                            Image("contact_normal").resizable()
                     }
                     
                     Button(action: {
                             
                     }) {
-                            Image("user_normal")
+                            Image("user_normal").resizable()
                     }
+                    }
+                    .frame(width: 35, height: 35)
+                    .buttonStyle(.plain)
+                    
                     
                     Spacer()
             }

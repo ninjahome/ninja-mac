@@ -9,12 +9,19 @@ import SwiftUI
 
 struct Contact: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+            Button(action: {
+                print("Delete tapped!")
+            }){
+                    Image("logo").resizable()
+            }
+            .buttonStyle(.plain)
+            .frame(width: 40, height: 40)
     }
 }
 
 struct Contact_Previews: PreviewProvider {
     static var previews: some View {
-        Contact()
+            Contact().frame(width: 880, height: 600, alignment: .center)
     }
 }

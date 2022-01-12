@@ -19,31 +19,38 @@ struct ChatMessage: View {
         private var items: FetchedResults<Item>
         
         var body: some View {
-                NavigationView {
-                        
-                        searchable(text: $searchText)
-                        
-                        List {
-                                ForEach(items) { item in
-                                        NavigationLink {
-                                                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                                        } label: {
-                                                Text(item.timestamp!, formatter: itemFormatter)
+                NavigationView() {
+                        VStack(){
+                                
+                                searchView(searchText: $searchText)
+                                        .padding(.all, 0.0)
+                                        .frame(height: 50)
+                                
+                                Divider()
+                                List {
+                                        
+                                        ForEach(items) {
+                                                item in
+                                                NavigationLink {
+                                                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                                                } label: {
+                                                        Text(item.timestamp!, formatter: itemFormatter)
+                                                }
                                         }
+                                        .onDelete(perform: deleteItems)
                                 }
-                                .onDelete(perform: deleteItems)
+                                .background(.red)
+                                .padding(.all, 0.0)
                         }
-                        .toolbar {
-                                ToolbarItem {
-                                        Button(action: addItem) {
-                                                Label("Add Item", systemImage: "plus")
-                                        }
-                                }
-                        }
+                        .frame(minWidth: 60, idealWidth: 80, maxWidth: 100)
+                        .background(.blue)
+                        .padding(.all, 0.0)
+                        
                         Text("Select an item")
                                 .font(.title)
                                 .padding(.all)
-                }.frame(width: 900, height: 720)
+                                .background(.purple)
+                }.padding()
         }
         private func addItem() {
                 withAnimation {

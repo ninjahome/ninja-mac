@@ -17,9 +17,8 @@ struct ContactView: View {
                         }
                         .buttonStyle(.plain)
                         .frame(width: 40, height: 40)
-                        
                         Spacer()
-                }.frame(width: 900, height: 720)
+                }
         }
 }
 

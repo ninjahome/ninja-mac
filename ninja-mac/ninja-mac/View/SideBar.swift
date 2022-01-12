@@ -49,7 +49,6 @@ struct SideBar: View {
                         Spacer()
                 }
                 .padding(.all)
-                .frame(width: 60)
         }
         
 }

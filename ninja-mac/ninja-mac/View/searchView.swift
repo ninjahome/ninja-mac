@@ -11,7 +11,7 @@ struct searchView: View {
         @Binding var searchText:String
         
         var body: some View {
-                HStack{
+                HStack(){
                         HStack{
                                 Image(systemName: "magnifyingglass")
                                 
@@ -21,9 +21,9 @@ struct searchView: View {
                                         onCommit: {
                                                 print("onCommit")
                                         })
-                                        .foregroundColor(.primary)
+                                        .foregroundColor(.gray)
                                         .disableAutocorrection(true)
-                                        .cornerRadius(13)
+                                        .cornerRadius(2)
                                         .buttonStyle(.plain)
                                 
                                 if self.searchText != ""{
@@ -38,7 +38,7 @@ struct searchView: View {
                         .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
                         .foregroundColor(.primary)
                         .background(.secondary)
-                        .cornerRadius(10.0)
+                        .cornerRadius(4.0)
                         
                         Button {
                                 print("Edit button was tapped")
@@ -46,7 +46,8 @@ struct searchView: View {
                                 Image(systemName: "plus")
                         }
                 }
-                .padding()
+                .padding(.all, 0.0)
+                .background(.green)
         }
 }
 

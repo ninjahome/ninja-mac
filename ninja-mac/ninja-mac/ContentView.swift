@@ -12,7 +12,9 @@ struct ContentView: View {
         
     var body: some View {
             HStack {
+                    SideBar()
                     ChatMessage()
+                    
             }.frame(width: 800, height: 600, alignment: .center)
     }
 }

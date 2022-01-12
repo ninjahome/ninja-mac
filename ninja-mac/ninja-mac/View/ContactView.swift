@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Contact: View {
+struct ContactView: View {
         var body: some View {
                 VStack{
                         Button(action: {
@@ -25,6 +25,6 @@ struct Contact: View {
 
 struct Contact_Previews: PreviewProvider {
         static var previews: some View {
-                Contact().frame(width: 880, height: 600, alignment: .center)
+                ContactView().frame(width: 880, height: 600, alignment: .center)
         }
 }

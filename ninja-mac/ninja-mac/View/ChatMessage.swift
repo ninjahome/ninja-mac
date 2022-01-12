@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ChatMessage: View {
+        
+        @State private var searchText:String = ""
+        
         @Environment(\.managedObjectContext) private var viewContext
         
         @FetchRequest(
@@ -17,6 +20,9 @@ struct ChatMessage: View {
         
         var body: some View {
                 NavigationView {
+                        
+                        searchable(text: $searchText)
+                        
                         List {
                                 ForEach(items) { item in
                                         NavigationLink {

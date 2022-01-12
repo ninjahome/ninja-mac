@@ -19,7 +19,7 @@ struct ninja_macApp: App {
                 WindowGroup {
                         ContentView()
                                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                }
+                }.windowStyle(HiddenTitleBarWindowStyle())
         }
         
         func Test(){

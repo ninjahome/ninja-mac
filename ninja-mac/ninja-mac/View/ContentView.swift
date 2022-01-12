@@ -17,9 +17,9 @@ struct ContentView: View {
                         case 0:
                                 ChatMessage()
                         case 1:
-                                Contact()
+                                ContactView()
                         default:
-                                Setting()
+                                SettingView()
                         }
                 }.frame(width: 960, height: 720, alignment: .center)
         }

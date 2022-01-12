@@ -21,14 +21,12 @@ struct ChatMessage: View {
         var body: some View {
                 NavigationView() {
                         VStack(){
-                                
                                 searchView(searchText: $searchText)
-                                        .padding(.all, 0.0)
                                         .frame(height: 50)
                                 
                                 Divider()
+                                
                                 List {
-                                        
                                         ForEach(items) {
                                                 item in
                                                 NavigationLink {
@@ -39,18 +37,20 @@ struct ChatMessage: View {
                                         }
                                         .onDelete(perform: deleteItems)
                                 }
-                                .background(.red)
-                                .padding(.all, 0.0)
+                                .background(Color(red: 0.969, green: 0.969, blue: 0.969))
                         }
-                        .frame(minWidth: 60, idealWidth: 80, maxWidth: 100)
+                        //                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         .background(.blue)
-                        .padding(.all, 0.0)
+                        //                        .background(Color(red: 0.969, green: 0.969, blue: 0.969))
                         
                         Text("Select an item")
                                 .font(.title)
                                 .padding(.all)
-                                .background(.purple)
-                }.padding()
+                                .background(.white)
+                        
+                }
+                .background(.yellow)
+                //                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
         }
         private func addItem() {
                 withAnimation {

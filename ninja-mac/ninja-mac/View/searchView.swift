@@ -19,7 +19,7 @@ struct searchView: View {
                                         "searching",
                                         text: $searchText,
                                         onCommit: {
-                                                print("onCommit")
+                                                print("onCommit:", self.searchText)
                                         })
                                         .foregroundColor(.gray)
                                         .disableAutocorrection(true)

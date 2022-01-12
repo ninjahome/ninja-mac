@@ -14,11 +14,10 @@ struct ninja_macApp: App {
         var ss:UserInterfaceAPI={v in
                 print("\n",String(cString:v!))
         }
-    
+        
         var body: some Scene {
                 WindowGroup {
                         ContentView()
-                                .frame(width: 800, height: 600)
                                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 }
         }

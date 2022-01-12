@@ -9,19 +9,25 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-        
-    var body: some View {
-            HStack {
-                    SideBar()
-                    ChatMessage()
-                    
-            }.frame(width: 800, height: 600, alignment: .center)
-    }
+        @State  var tabIdx = 0
+        var body: some View {
+                HStack {
+                        SideBar(tabIdx:$tabIdx)
+                        switch tabIdx{
+                        case 0:
+                                ChatMessage()
+                        case 1:
+                                Contact()
+                        default:
+                                Setting()
+                        }
+                }.frame(width: 960, height: 720, alignment: .center)
+        }
 }
 
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
+        static var previews: some View {
+                ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        }
 }

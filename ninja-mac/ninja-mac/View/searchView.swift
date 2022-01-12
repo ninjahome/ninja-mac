@@ -31,27 +31,21 @@ struct searchView: View {
                                         }
                                 }
                         }
-//                        .padding()
                         .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
                         .background(Color(red: 0.925, green: 0.925, blue: 0.925))
-//                        .background(.red)
                         .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                        .stroke(Color(red: 0.925, green: 0.925, blue: 0.925),
+                                RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color(red: 1.0, green: 0.798, blue: 0.0),
                                                 lineWidth: 1))
                         
                         Button {
                                 print("Edit button was tapped")
                         } label: {
                                 Image(systemName: "plus")
-                                        .background(.black)
                         }
                 }
-//                .padding()
-//                .frame(height: 30)
-                .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5))
-//                .background(Color(red: 0.969, green: 0.969, blue: 0.969))
-                                        .background(.red)
+                .padding(EdgeInsets(top: 15, leading: 5, bottom: 15, trailing: 5))
+                .background(Color(red: 0.969, green: 0.969, blue: 0.969))
         }
 }
 

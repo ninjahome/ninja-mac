@@ -21,13 +21,11 @@ struct ChatMessage: View {
         var body: some View {
                 
                 NavigationView() {
-                        
                         VStack{
-//                                Spacer()
-                                searchView(searchText: $searchText)
-                                Spacer().frame(height:0.0)
                                 
                                 List {
+                                        
+                                        searchView(searchText: $searchText)
                                         ForEach(items) {
                                                 item in
                                                 NavigationLink {
@@ -38,13 +36,16 @@ struct ChatMessage: View {
                                         }
                                         .onDelete(perform: deleteItems)
                                 }
+                                .edgesIgnoringSafeArea(.top)
                                 .background(Color(red: 0.969, green: 0.969, blue: 0.969))
+                                
                         }
                         .background(.blue)
 //                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-//                        .padding()
+                        .padding(.all, 0.0)
                         
                 }
+                .edgesIgnoringSafeArea(.top)
                 .background(.yellow)
                 .padding(.all, 0.0)
 //                .padding(EdgeInsets(top: 0.5, leading: 0, bottom: 0, trailing: 0))

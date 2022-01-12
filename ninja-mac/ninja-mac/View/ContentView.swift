@@ -15,9 +15,7 @@ struct ContentView: View {
                         SideBar(tabIdx:$tabIdx)
                                 .frame(width: 60)
                                 .background(Color(red: 0.904, green: 0.88, blue: 0.909))
-                        
                         Spacer().frame(width: 0)
-                        
                         switch tabIdx{
                         case 0:
                                 ChatMessage()
@@ -29,13 +27,15 @@ struct ContentView: View {
                         Spacer()
                 }
                 .frame(minWidth: 600, idealWidth: 800, minHeight: 480, idealHeight: 600)
+//                .background(.purple)
                 .background(Color(red: 0.969, green: 0.969, blue: 0.969))
+                .padding(.all, 0.0)
         }
 }
 
 
 struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
-                ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+                ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext).background(.black)
         }
 }

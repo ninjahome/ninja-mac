@@ -17,7 +17,7 @@ struct ContactView: View {
                         }
                         .buttonStyle(.plain)
                         .frame(width: 40, height: 40)
-                        .background(.white)
+                        .background(.purple)
                 }
         }
 }

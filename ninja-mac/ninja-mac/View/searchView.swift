@@ -11,7 +11,7 @@ struct searchView: View {
         @Binding var searchText:String
         
         var body: some View {
-                HStack(){
+                HStack{
                         HStack{
                                 Image(systemName: "magnifyingglass")
                                 
@@ -20,11 +20,8 @@ struct searchView: View {
                                         text: $searchText,
                                         onCommit: {
                                                 print("onCommit:", self.searchText)
-                                        })
-                                        .foregroundColor(.gray)
-                                        .disableAutocorrection(true)
-                                        .cornerRadius(2)
-                                        .buttonStyle(.plain)
+                                        }
+                                )                                        .textFieldStyle(PlainTextFieldStyle())
                                 
                                 if self.searchText != ""{
                                         Button(action: {
@@ -33,21 +30,28 @@ struct searchView: View {
                                                 Image(systemName: "xmark.circle.fill")
                                         }
                                 }
-                                
                         }
-                        .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
-                        .foregroundColor(.primary)
-                        .background(.secondary)
-                        .cornerRadius(4.0)
+//                        .padding()
+                        .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
+                        .background(Color(red: 0.925, green: 0.925, blue: 0.925))
+//                        .background(.red)
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                        .stroke(Color(red: 0.925, green: 0.925, blue: 0.925),
+                                                lineWidth: 1))
                         
                         Button {
                                 print("Edit button was tapped")
                         } label: {
                                 Image(systemName: "plus")
+                                        .background(.black)
                         }
                 }
-                .padding(.all, 0.0)
-                .background(.green)
+//                .padding()
+//                .frame(height: 30)
+                .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5))
+//                .background(Color(red: 0.969, green: 0.969, blue: 0.969))
+                                        .background(.red)
         }
 }
 

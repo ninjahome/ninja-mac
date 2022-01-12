@@ -19,12 +19,13 @@ struct ChatMessage: View {
         private var items: FetchedResults<Item>
         
         var body: some View {
+                
                 NavigationView() {
-                        VStack(){
+                        
+                        VStack{
+//                                Spacer()
                                 searchView(searchText: $searchText)
-                                        .frame(height: 50)
-                                
-                                Divider()
+                                Spacer().frame(height:0.0)
                                 
                                 List {
                                         ForEach(items) {
@@ -39,18 +40,14 @@ struct ChatMessage: View {
                                 }
                                 .background(Color(red: 0.969, green: 0.969, blue: 0.969))
                         }
-                        //                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         .background(.blue)
-                        //                        .background(Color(red: 0.969, green: 0.969, blue: 0.969))
-                        
-                        Text("Select an item")
-                                .font(.title)
-                                .padding(.all)
-                                .background(.white)
+//                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+//                        .padding()
                         
                 }
                 .background(.yellow)
-                //                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                .padding(.all, 0.0)
+//                .padding(EdgeInsets(top: 0.5, leading: 0, bottom: 0, trailing: 0))
         }
         private func addItem() {
                 withAnimation {

@@ -22,7 +22,7 @@ struct ChatItemView: View {
                         VStack(alignment: .leading){
                                 HStack{
                                         Text("name")
-                                                .font(.title)
+                                                .font(.title2)
                                         Spacer()
                                         Text("time")
                                                 .font(.subheadline)

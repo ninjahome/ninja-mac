@@ -27,7 +27,6 @@ struct ContentView: View {
                         Spacer()
                 }
                 .frame(minWidth: 600, idealWidth: 800, minHeight: 480, idealHeight: 600)
-//                .background(.purple)
                 .background(Color(red: 0.969, green: 0.969, blue: 0.969))
                 .padding(.all, 0.0)
         }

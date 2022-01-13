@@ -20,9 +20,10 @@ struct ChatItemView: View {
                                 .cornerRadius(5)
                         
                         VStack(alignment: .leading){
-                                HStack{
+                                HStack(){
                                         Text("name")
                                                 .font(.title2)
+                                        
                                         Spacer()
                                         Text("time")
                                                 .font(.subheadline)
@@ -32,6 +33,7 @@ struct ChatItemView: View {
                                         .font(.subheadline)
                                         .foregroundColor(.secondary)
                         }
+                        .frame(height: 35)
                 }
                 .padding(.all, 0.0)
                 

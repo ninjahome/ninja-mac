@@ -20,11 +20,11 @@ struct ChatMessage: View {
         
         var body: some View {
                 
-                NavigationView() {
+                NavigationView{
                         VStack{
                                 searchView(searchText: $searchText)
                                 Spacer().frame(height: 0)
-                                List {
+                                List(){
                                         ForEach(items) {
                                                 item in
                                                 NavigationLink {
@@ -36,8 +36,8 @@ struct ChatMessage: View {
                                         }
                                         .onDelete(perform: deleteItems)
                                 }
-//                                .background(.red)
-                                                                .background(Color(red: 0.969, green: 0.969, blue: 0.969))
+                                .listStyle(PlainListStyle())
+//                                .background(Color(red: 0.969, green: 0.969, blue: 0.969))
                         }
                         .edgesIgnoringSafeArea(.all)
                         .padding(.all, 0.0)

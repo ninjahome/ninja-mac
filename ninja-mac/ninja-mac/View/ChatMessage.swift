@@ -36,15 +36,18 @@ struct ChatMessage: View {
                                         }
                                         .onDelete(perform: deleteItems)
                                 }
+//                                .background(.blue)
+//                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -15))
                                 .listStyle(PlainListStyle())
 //                                .background(Color(red: 0.969, green: 0.969, blue: 0.969))
                         }
+//                        .background(.red)
                         .edgesIgnoringSafeArea(.all)
                         .padding(.all, 0.0)
                         
                 }
                 .background(.yellow)
-                .padding(.all, 0.0)
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
         }
         
         

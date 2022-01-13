@@ -24,5 +24,6 @@ struct ninja_macApp: App {
         
         func Test(){
                 createAccount("123".toGoStr())
+//                GroupImage("".toGoStr())
         }
 }

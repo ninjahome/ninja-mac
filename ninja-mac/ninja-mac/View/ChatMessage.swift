@@ -23,16 +23,18 @@ struct ChatMessage: View {
                 NavigationView() {
                         VStack{
                                 
+                                searchView(searchText: $searchText)
+                                Spacer().frame(width: 0)
                                 List {
-                                        
-                                        searchView(searchText: $searchText)
                                         ForEach(items) {
                                                 item in
                                                 NavigationLink {
                                                         Text("Item at \(item.timestamp!, formatter: itemFormatter)")
                                                 } label: {
-                                                        Text(item.timestamp!, formatter: itemFormatter)
+                                                        ChatItemView()
                                                 }
+                                                .frame(height: 60)
+                                                //                                                .listRowBackground(Color.blue) // Uses Color
                                         }
                                         .onDelete(perform: deleteItems)
                                 }
@@ -40,15 +42,16 @@ struct ChatMessage: View {
                                 .background(Color(red: 0.969, green: 0.969, blue: 0.969))
                                 
                         }
+                        .edgesIgnoringSafeArea(.top)
                         .background(.blue)
-//                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        //                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         .padding(.all, 0.0)
                         
                 }
                 .edgesIgnoringSafeArea(.top)
                 .background(.yellow)
                 .padding(.all, 0.0)
-//                .padding(EdgeInsets(top: 0.5, leading: 0, bottom: 0, trailing: 0))
+                //                .padding(EdgeInsets(top: 0.5, leading: 0, bottom: 0, trailing: 0))
         }
         private func addItem() {
                 withAnimation {

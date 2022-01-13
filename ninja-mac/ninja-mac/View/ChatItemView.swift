@@ -34,7 +34,6 @@ struct ChatItemView: View {
                         }
                 }
                 .padding(.all, 0.0)
-                .background(.purple)
                 
         }
 }

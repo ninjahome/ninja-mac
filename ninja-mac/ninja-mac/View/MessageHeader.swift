@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChatHeader: View {
+struct MessageHeader: View {
         var body: some View {
                 HStack{
                         Text("Nick Name").font(.title2)
@@ -29,6 +29,6 @@ struct ChatHeader: View {
 
 struct ChatHeader_Previews: PreviewProvider {
         static var previews: some View {
-                ChatHeader()
+                MessageHeader()
         }
 }

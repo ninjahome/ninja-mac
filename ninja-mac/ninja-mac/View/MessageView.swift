@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChatView: View {
+struct MessageView: View {
         
         @State private var searchText:String = ""
         
@@ -27,29 +27,43 @@ struct ChatView: View {
                                 List(){
                                         ForEach(items) {
                                                 item in
-                                                NavigationLink {
-                                                        ChatHeader()
-                                                        Spacer()
-                                                        ChatBody()
+                                                NavigationLink() {
+                                                        VStack{
+                                                                MessageHeader()
+                                                                Spacer()
+                                                                MessageBody()
+                                                        }.background(.blue)
                                                 } label: {
                                                         ChatItemView()
                                                 }
+                                                .gesture(
+                                                  TapGesture(count:1)
+                                                    .onEnded({
+                                                      print("Tap Single")
+                                                    })
+                                                )
+                                                .highPriorityGesture(
+                                                  TapGesture(count:2)
+                                                    .onEnded({
+                                                      print("Tap Double")
+                                                    })
+                                                )
                                                 .frame(height: 60)
                                         }
                                         .onDelete(perform: deleteItems)
                                 }
                                 
-//                                .toolbar{
-//                                    ToolbarItem {
-//                                        Button(action: addItem) {
-//                                            Label("Add Item", systemImage: "plus")
-//                                        }
-//                                    }
-//                                }
-//                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -15))
+                                ///                                .toolbar{
+                                ///                                    ToolbarItem {
+                                ///                                        Button(action: addItem) {
+                                ///                                            Label("Add Item", systemImage: "plus")
+                                ///                                        }
+                                ///                                    }
+                                ///                                }
+                                ///                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -15))
                                 
-                                
-                                .listStyle(.plain).ignoresSafeArea()
+                                .listStyle(.plain)
+                                .ignoresSafeArea()
                         }
                         .edgesIgnoringSafeArea(.all)
                         .padding(.all, 0.0)
@@ -102,6 +116,6 @@ private let itemFormatter: DateFormatter = {
 
 struct ChatMessage_Previews: PreviewProvider {
         static var previews: some View {
-                ChatView()
+                MessageView()
         }
 }

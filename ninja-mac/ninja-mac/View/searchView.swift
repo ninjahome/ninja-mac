@@ -32,7 +32,6 @@ struct searchView: View {
                                 }
                         }
                         .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5))
-                        .background(Color(red: 0.925, green: 0.925, blue: 0.925))
                         .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                         .stroke(Color(red: 1.0, green: 0.798, blue: 0.0),

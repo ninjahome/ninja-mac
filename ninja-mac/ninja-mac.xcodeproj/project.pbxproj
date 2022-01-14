@@ -17,7 +17,7 @@
 		698CE97F278BFEBB009D8074 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698CE97E278BFEBB009D8074 /* utils.swift */; };
 		698CE981278BFFCD009D8074 /* ninjaLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 698CE97D278BFCB5009D8074 /* ninjaLib.a */; };
 		69BC6672278D808C00EB2E2C /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6671278D808C00EB2E2C /* MessageView.swift */; };
-		69BC6676278D851400EB2E2C /* ChatItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6675278D851400EB2E2C /* ChatItemView.swift */; };
+		69BC6676278D851400EB2E2C /* MessageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6675278D851400EB2E2C /* MessageItemView.swift */; };
 		69BC6678278D8CCA00EB2E2C /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6677278D8CCA00EB2E2C /* ContactView.swift */; };
 		69BC667A278D8CE200EB2E2C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6679278D8CE200EB2E2C /* SettingView.swift */; };
 		69BC667C278D8F2200EB2E2C /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC667B278D8F2200EB2E2C /* SideBar.swift */; };
@@ -41,7 +41,7 @@
 		698CE97E278BFEBB009D8074 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		698CE980278BFF4F009D8074 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		69BC6671278D808C00EB2E2C /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
-		69BC6675278D851400EB2E2C /* ChatItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatItemView.swift; sourceTree = "<group>"; };
+		69BC6675278D851400EB2E2C /* MessageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageItemView.swift; sourceTree = "<group>"; };
 		69BC6677278D8CCA00EB2E2C /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		69BC6679278D8CE200EB2E2C /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		69BC667B278D8F2200EB2E2C /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
@@ -66,12 +66,8 @@
 		6984D706278E8A0000D2F0D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				69BC6675278D851400EB2E2C /* ChatItemView.swift */,
 				698CE96A278BFA31009D8074 /* ContentView.swift */,
-				6984D704278E89C100D2F0D7 /* searchView.swift */,
-				69BC6671278D808C00EB2E2C /* MessageView.swift */,
-				69BDD39527917E8D00EF76DE /* MessageHeader.swift */,
-				69BDD39727917E9F00EF76DE /* MessageBody.swift */,
+				69BDD39927919D2100EF76DE /* message */,
 				69BC6677278D8CCA00EB2E2C /* ContactView.swift */,
 				69BC667B278D8F2200EB2E2C /* SideBar.swift */,
 				69BC6679278D8CE200EB2E2C /* SettingView.swift */,
@@ -136,6 +132,18 @@
 				69BDD39327902D6900EF76DE /* ModelData.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		69BDD39927919D2100EF76DE /* message */ = {
+			isa = PBXGroup;
+			children = (
+				69BC6675278D851400EB2E2C /* MessageItemView.swift */,
+				6984D704278E89C100D2F0D7 /* searchView.swift */,
+				69BC6671278D808C00EB2E2C /* MessageView.swift */,
+				69BDD39527917E8D00EF76DE /* MessageHeader.swift */,
+				69BDD39727917E9F00EF76DE /* MessageBody.swift */,
+			);
+			path = message;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,7 +226,7 @@
 				69BC6672278D808C00EB2E2C /* MessageView.swift in Sources */,
 				69BC6678278D8CCA00EB2E2C /* ContactView.swift in Sources */,
 				69BDD39627917E8D00EF76DE /* MessageHeader.swift in Sources */,
-				69BC6676278D851400EB2E2C /* ChatItemView.swift in Sources */,
+				69BC6676278D851400EB2E2C /* MessageItemView.swift in Sources */,
 				69BDD3912790297C00EF76DE /* ChatItem.swift in Sources */,
 				698CE975278BFA32009D8074 /* ninja_mac.xcdatamodeld in Sources */,
 				698CE969278BFA31009D8074 /* ninja_macApp.swift in Sources */,

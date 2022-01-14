@@ -34,7 +34,7 @@ struct MessageView: View {
                                                                 MessageBody()
                                                         }.background(.blue)
                                                 } label: {
-                                                        ChatItemView()
+                                                        MessageItemView()
                                                 }
                                                 .gesture(
                                                   TapGesture(count:1)

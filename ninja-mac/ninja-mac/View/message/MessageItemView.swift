@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChatItemView: View {
+struct MessageItemView: View {
         @State var name = "test"
         
         var body: some View {
@@ -43,6 +43,6 @@ struct ChatItemView: View {
 
 struct AvatarView_Previews: PreviewProvider {
         static var previews: some View {
-                ChatItemView()
+                MessageItemView()
         }
 }

@@ -29,6 +29,7 @@ struct ChatItemView: View {
                                                 .font(.subheadline)
                                                 .foregroundColor(.secondary)
                                 }
+                                Spacer().frame(height: 5)
                                 Text("details")
                                         .font(.subheadline)
                                         .foregroundColor(.secondary)

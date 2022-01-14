@@ -18,7 +18,7 @@ struct ContentView: View {
                         Spacer().frame(width: 0)
                         switch tabIdx{
                         case 0:
-                                ChatMessage()
+                                ChatView()
                         case 1:
                                 ContactView()
                         default:
@@ -26,7 +26,7 @@ struct ContentView: View {
                         }
                         Spacer()
                 }
-                .frame(minWidth: 600, idealWidth: 800, minHeight: 480, idealHeight: 600)
+                .frame(minWidth: 800, idealWidth: 960, minHeight: 600, idealHeight: 720)
                 .background(Color(red: 0.969, green: 0.969, blue: 0.969))
                 .padding(.all, 0.0)
         }

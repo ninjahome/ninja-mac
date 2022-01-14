@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct ChatMessage: View {
+struct ChatView: View {
         
         @State private var searchText:String = ""
         
         @Environment(\.managedObjectContext) private var viewContext
         
         @FetchRequest(
-                sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+                sortDescriptors: [NSSortDescriptor(keyPath: \MsgItem.timestamp, ascending: true)],
                 animation: .default)
-        private var items: FetchedResults<Item>
+        private var items: FetchedResults<MsgItem>
         
         var body: some View {
                 
@@ -28,7 +28,9 @@ struct ChatMessage: View {
                                         ForEach(items) {
                                                 item in
                                                 NavigationLink {
-                                                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                                                        ChatHeader()
+                                                        Spacer()
+                                                        ChatBody()
                                                 } label: {
                                                         ChatItemView()
                                                 }
@@ -36,6 +38,7 @@ struct ChatMessage: View {
                                         }
                                         .onDelete(perform: deleteItems)
                                 }
+                                
 //                                .toolbar{
 //                                    ToolbarItem {
 //                                        Button(action: addItem) {
@@ -43,12 +46,11 @@ struct ChatMessage: View {
 //                                        }
 //                                    }
 //                                }
-//                                .background(.blue)
 //                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -15))
+                                
+                                
                                 .listStyle(.plain).ignoresSafeArea()
-//                                .background(Color(red: 0.969, green: 0.969, blue: 0.969))
                         }
-//                        .background(.red)
                         .edgesIgnoringSafeArea(.all)
                         .padding(.all, 0.0)
                         
@@ -60,7 +62,7 @@ struct ChatMessage: View {
         
         private func addItem() {
                 withAnimation {
-                        let newItem = Item(context: viewContext)
+                        let newItem = MsgItem(context: viewContext)
                         newItem.timestamp = Date()
                         
                         do {
@@ -100,6 +102,6 @@ private let itemFormatter: DateFormatter = {
 
 struct ChatMessage_Previews: PreviewProvider {
         static var previews: some View {
-                ChatMessage()
+                ChatView()
         }
 }

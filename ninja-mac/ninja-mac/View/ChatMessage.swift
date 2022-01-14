@@ -36,6 +36,13 @@ struct ChatMessage: View {
                                         }
                                         .onDelete(perform: deleteItems)
                                 }
+//                                .toolbar{
+//                                    ToolbarItem {
+//                                        Button(action: addItem) {
+//                                            Label("Add Item", systemImage: "plus")
+//                                        }
+//                                    }
+//                                }
 //                                .background(.blue)
 //                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -15))
                                 .listStyle(PlainListStyle())

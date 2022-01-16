@@ -16,8 +16,19 @@ struct MessageView: View {
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \MsgItem.timestamp, ascending: true)],
         animation: .default)
+        
     private var items: FetchedResults<MsgItem>
-    
+        
+//        struct Ocean: Identifiable, Hashable {
+//             let name: String
+//             let id = UUID()
+//             let stats: [String: String]
+//         }
+//        class OceanStore: ObservableObject {
+//             @Published var oceans = [Ocean]()
+//             func loadStats() async -> Void {}
+//         }
+//        @EnvironmentObject var store: OceanStore
     var body: some View {
         
         NavigationView{
@@ -40,6 +51,9 @@ struct MessageView: View {
                     }
                     .onDelete(perform: deleteItems)
                 }
+//                .refreshable {
+//                        await store.loadStats()
+//                }
 //                .toolbar{
 //                    ToolbarItem {
 //                        Button(action: addItem) {
@@ -54,6 +68,8 @@ struct MessageView: View {
             }
             .edgesIgnoringSafeArea(.all)
             .padding(.all, 0.0)
+                
+                Text("Select a Color")
             
         }
         .background(.yellow)

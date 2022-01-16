@@ -36,7 +36,7 @@ struct MessageItemView: View {
                         }
                         .frame(height: 35)
                 }
-                .padding(.all, 0.0)
+                .padding(EdgeInsets(top: 12, leading: 5, bottom: 12, trailing: 3))
                 
         }
 }

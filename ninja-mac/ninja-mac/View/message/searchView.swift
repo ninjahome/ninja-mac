@@ -21,7 +21,8 @@ struct searchView: View {
                                         onCommit: {
                                                 print("onCommit:", self.searchText)
                                         }
-                                )                                        .textFieldStyle(PlainTextFieldStyle())
+                                )
+                                        .textFieldStyle(PlainTextFieldStyle())
                                 
                                 if self.searchText != ""{
                                         Button(action: {

@@ -29,29 +29,24 @@ struct MessageView: View {
 //             func loadStats() async -> Void {}
 //         }
 //        @EnvironmentObject var store: OceanStore
+        @State var selected: MsgItem? = nil
     var body: some View {
         
-        NavigationView{
+            HSplitView{
             VStack{
                 searchView(searchText: $searchText)
                 Spacer().frame(height: 0)
-                List(){
-                    ForEach(items) {
-                        item in
-                        NavigationLink() {
-                            VStack{
-                                MessageHeader()
-                                Spacer()
-                                MessageBody()
-                            }.background(.blue)
-                        } label: {
-                            MessageItemView()
-                        }
-                        .frame(height: 60)
-                    }
-                    .onDelete(perform: deleteItems)
+                    List(items, id: \.self, selection: $selected){
+                                item in
+                        MessageItemView()
+//                                .onTapGesture{
+//                                selected = item
+//                                selNickName = itemFormatter.string(from: selected!.timestamp!)
+//                                print(selNickName)
+//                        }
                 }
-//                .refreshable {
+                    
+                    //                .refreshable {
 //                        await store.loadStats()
 //                }
 //                .toolbar{
@@ -66,17 +61,28 @@ struct MessageView: View {
                 .listStyle(.plain)
                 .ignoresSafeArea()
             }
+            .frame(minWidth: 150, idealWidth: 200, maxWidth: 300, maxHeight: .infinity)
             .edgesIgnoringSafeArea(.all)
             .padding(.all, 0.0)
-                
-                Text("Select a Color")
-            
+                    
+                    if selected == nil {
+                            Text("Select a Color")
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    } else {
+                            
+                            VStack{
+                                    MessageHeader(userName: $selected)
+                                Spacer()
+                                MessageBody()
+                            }.background(.blue)
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    }
         }
         .background(.yellow)
-        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+//        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
     }
     
-    
+
     private func addItem() {
         withAnimation {
             let newItem = MsgItem(context: viewContext)

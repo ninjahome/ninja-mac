@@ -31,7 +31,7 @@ struct MessageView: View {
         //        @EnvironmentObject var store: OceanStore
         @State var selected: MsgItem? = nil
         @State private var selectedIdx: Int = 0
-        
+        @State var indexPathToSetVisible: IndexPath?
         var body: some View {
                 
                 HSplitView{
@@ -44,7 +44,6 @@ struct MessageView: View {
                                                 MessageItemView()
                                         }
                                 }
-                                
                                 //                .refreshable {
                                 //                        await store.loadStats()
                                 //                }
@@ -55,8 +54,8 @@ struct MessageView: View {
                                 //                        }
                                 //                    }
                                 //                }
-                                //.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -15))
-                                
+//                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -15))
+                                .listStyle(.plain)
                                 .ignoresSafeArea()
                         }
                         .frame(minWidth: 150, idealWidth: 200, maxWidth: 300, maxHeight: .infinity)

@@ -15,16 +15,16 @@ struct MessageHeader: View {
                 HStack{
                         Text("\(getTime(msg:userName))").font(.title2)
                         Spacer()
-                        Button {
-                                print("Edit button was tapped")
-                        } label: {
-                                Image(systemName: "ellipsis")
-                        }
+                         Button(action: addItem) {
+                                 Image(systemName: "ellipsis")
+                         }
+                        
                         .buttonStyle(.plain)
+                        .background(.red)
+                        .frame(width: 30, height: 30, alignment: .center)
                 }
                 .padding()
-                .background(.red)
-//                .background(Color(red: 0.952, green: 0.952, blue: 0.952))
+                .background(Color(red: 0.952, green: 0.952, blue: 0.952))
                 .frame(height: 68)
                 .ignoresSafeArea()
         }
@@ -36,18 +36,21 @@ struct MessageHeader: View {
         }()
         
         private func getTime(msg:MsgItem?)-> String{
-                print(msg)
                 guard let date = msg?.timestamp else{
                         return "no title"
                 }
                 
                 return itemFormatter.string(from: date)
         }
+        
+        private func addItem(){
+                print("Edit button was tapped")
+        }
 }
 
-//struct ChatHeader_Previews: PreviewProvider {
-//        @State static var name:MsgItem="test"
-//        static var previews: some View {
-//                MessageHeader(userName: $name)
-//        }
-//}
+struct ChatHeader_Previews: PreviewProvider {
+        @State static var name:MsgItem?
+        static var previews: some View {
+                MessageHeader(userName: $name)
+        }
+}

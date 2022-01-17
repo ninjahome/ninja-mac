@@ -18,10 +18,9 @@ struct MessageHeader: View {
                          Button(action: addItem) {
                                  Image(systemName: "ellipsis")
                          }
+                        .buttonStyle(.borderless)
+//                        .background(.red)
                         
-                        .buttonStyle(.plain)
-                        .background(.red)
-                        .frame(width: 30, height: 30, alignment: .center)
                 }
                 .padding()
                 .background(Color(red: 0.952, green: 0.952, blue: 0.952))

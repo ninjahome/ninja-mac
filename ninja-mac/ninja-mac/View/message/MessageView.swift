@@ -30,6 +30,8 @@ struct MessageView: View {
 //         }
 //        @EnvironmentObject var store: OceanStore
         @State var selected: MsgItem? = nil
+        @State private var selectedIdx: Int = 2
+  
     var body: some View {
         
             HSplitView{
@@ -38,12 +40,7 @@ struct MessageView: View {
                 Spacer().frame(height: 0)
                     List(items, id: \.self, selection: $selected){
                                 item in
-                        MessageItemView()
-//                                .onTapGesture{
-//                                selected = item
-//                                selNickName = itemFormatter.string(from: selected!.timestamp!)
-//                                print(selNickName)
-//                        }
+                            MessageItemView()
                 }
                     
                     //                .refreshable {
@@ -77,7 +74,12 @@ struct MessageView: View {
                             }.background(.blue)
                                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
-        }
+            }
+            .onAppear{
+                    if items.count > selectedIdx {
+                            selected = items[selectedIdx]
+                    }
+            }
         .background(.yellow)
 //        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
     }

@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct MessageHeader: View {
+        
         @Binding  var userName:MsgItem?;
+        
         var body: some View {
                 HStack{
-                        Text("\(itemFormatter.string(from: userName?.timestamp ?? Date()))").font(.title2)
+                        Text("\(getTime(msg:userName))").font(.title2)
                         Spacer()
                         Button {
                                 print("Edit button was tapped")
@@ -32,6 +34,15 @@ struct MessageHeader: View {
             formatter.timeStyle = .full
             return formatter
         }()
+        
+        private func getTime(msg:MsgItem?)-> String{
+                print(msg)
+                guard let date = msg?.timestamp else{
+                        return "no title"
+                }
+                
+                return itemFormatter.string(from: date)
+        }
 }
 
 //struct ChatHeader_Previews: PreviewProvider {

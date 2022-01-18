@@ -12,26 +12,26 @@ struct MessageHeader: View {
         @Binding  var userName:MsgItem?;
         
         var body: some View {
-                HStack{
-                        Text("\(getTime(msg:userName))").font(.title2)
+                HStack(alignment:.top){
+                        Text("\(getTime(msg:userName))")
+                                .font(.custom("HelveticaNeue", size: 15))
                         Spacer()
-                         Button(action: addItem) {
-                                 Image(systemName: "ellipsis").resizable().frame(width: 32, height: 32, alignment: .center)
-                         }
+                        Button(action: addItem) {
+                                Image(systemName: "ellipsis")
+                                
+                        }
                         .buttonStyle(.borderless)
-//                        .background(.red)
-                        
                 }
+//                .padding(.all, 0.0)
                 .padding()
                 .background(Color(red: 0.952, green: 0.952, blue: 0.952))
-                .frame(height: 68)
-                .ignoresSafeArea()
+                
         }
         private let itemFormatter: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .full
-            formatter.timeStyle = .full
-            return formatter
+                let formatter = DateFormatter()
+                formatter.dateStyle = .full
+                formatter.timeStyle = .full
+                return formatter
         }()
         
         private func getTime(msg:MsgItem?)-> String{

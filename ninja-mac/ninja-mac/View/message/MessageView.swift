@@ -41,7 +41,7 @@ struct MessageView: View {
                                 //                        }
                                 //                    }
                                 //                }
-//.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -15))
+                                //.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -15))
                                 .listStyle(.plain)
                                 .ignoresSafeArea()
                         }
@@ -49,20 +49,18 @@ struct MessageView: View {
                         .edgesIgnoringSafeArea(.all)
                         .padding(.all, 0.0)
                         
-                        if selected == nil {
-                                Text("Select a Color")
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        } else {
+                        VStack{
+                                MessageHeader(userName: $selected)
+                                        .frame(height: 65)
                                 
-                                VStack{
-                                        MessageHeader(userName: $selected)
-                                        MessageBody()
-                                }
-                                .ignoresSafeArea()
-                                .padding(.all, 0.0)
-                                .background(.blue)
-//                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                MessageBody()
+                                
+                                MessageInput()
+                                        .frame(minHeight: 150, idealHeight: 200, maxHeight: 350)
                         }
+                        .ignoresSafeArea()
+                        .background(.blue)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
                 }
                 
                 .onAppear{

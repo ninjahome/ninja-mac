@@ -37,16 +37,14 @@ struct MessageInput: View {
                         
                         TextEditor(text: $messageToSend)
                                 .foregroundColor(Color.black)
-                                .lineSpacing(5)
+                                .lineSpacing(2)
                                 .font(.custom("HelveticaNeue", size: 13))
-                        //                                .font(.title3)
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -20))
                                 .onSubmit {
                                         sendMsg()
                                 }
-                                .border(Color.black, width: 1)
+                                .border(Color.green, width: 1)
                                 .disableAutocorrection(true)
-                        Spacer()
                 }
                 .background(Color(red: 0.952, green: 0.952, blue: 0.952))
         }

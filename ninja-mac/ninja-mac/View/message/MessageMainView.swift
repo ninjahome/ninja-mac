@@ -56,7 +56,7 @@ struct MessageMainView: View {
                                         MessageHeader(userName: $selected)
                                         MessageBody()
                                         MessageInput()
-                                                .frame(minHeight: 150, idealHeight: 200, maxHeight: 350)
+                                                .frame(minHeight: 150, idealHeight: 200, maxHeight: 300)
                                 }
                                 .ignoresSafeArea()
                                 .padding(.all, 0.0)

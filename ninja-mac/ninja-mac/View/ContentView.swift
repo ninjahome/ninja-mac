@@ -20,7 +20,7 @@ struct ContentView: View {
                         case 0:
                                 MessageMainView()
                         case 1:
-                                ContactView()
+                                ContactMainView()
                         default:
                                 SettingView()
                         }

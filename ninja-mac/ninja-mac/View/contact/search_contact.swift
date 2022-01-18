@@ -1,15 +1,14 @@
 //
-//  searchView.swift
+//  search_contact.swift
 //  ninja-mac
 //
-//  Created by wesley on 2022/1/12.
+//  Created by wesley on 2022/1/18.
 //
 
 import SwiftUI
 
-struct searchView: View {
+struct search_contact: View {
         @Binding var searchText:String
-        
         var body: some View {
                 HStack{
                         HStack{
@@ -22,7 +21,7 @@ struct searchView: View {
                                                 print("onCommit:", self.searchText)
                                         }
                                 )
-                                        .textFieldStyle(.plain)
+                                        .textFieldStyle(PlainTextFieldStyle())
                                 
                                 if self.searchText != ""{
                                         Button(action: {
@@ -41,17 +40,17 @@ struct searchView: View {
                         Button {
                                 print("Edit button was tapped")
                         } label: {
-                                Image(systemName: "plus")
+                                Image(systemName: "person.badge.plus")
                         }
                 }
-                .padding(EdgeInsets(top: 17, leading: 5, bottom: 17, trailing: 5))
+                .padding(EdgeInsets(top: 15, leading: 5, bottom: 15, trailing: 5))
                 .background(Color(red: 0.969, green: 0.969, blue: 0.969))
         }
 }
 
-struct searchView_Previews: PreviewProvider {
+struct search_contact_Previews: PreviewProvider {
         @State static var searchText:String = ""
         static var previews: some View {
-                searchView(searchText:$searchText)
+                search_contact(searchText: $searchText)
         }
 }

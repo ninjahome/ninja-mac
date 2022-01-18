@@ -12,28 +12,29 @@ struct MessageMainView: View {
         @State private var searchText:String = ""
         
         @Environment(\.managedObjectContext) private var viewContext
-        
         @FetchRequest(
                 sortDescriptors: [NSSortDescriptor(keyPath: \MsgItem.timestamp, ascending: true)],
                 animation: .default)
-        
         private var items: FetchedResults<MsgItem>
         
         @State var selected: MsgItem? = nil
         @State private var selectedIdx: Int = 0
         @State var indexPathToSetVisible: IndexPath?
+        
+        
+        
         var body: some View {
                 
                 HSplitView{
-                        VStack{
+                        VStack(spacing:0){
                                 searchView(searchText: $searchText)
-                                Spacer().frame(height: 0)
+                                Divider()
                                 List(selection: $selected){
                                         ForEach(items, id: \.self){
                                                 item in
                                                 MessageItemView()
                                         }
-                                }
+                                }.background(.red)
                                 //                .toolbar{
                                 //                    ToolbarItem {
                                 //                        Button(action: addItem) {
@@ -42,18 +43,21 @@ struct MessageMainView: View {
                                 //                    }
                                 //                }
                                 //.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -15))
-                                .listStyle(.plain)
-                                .ignoresSafeArea()
+                                        .listStyle(.plain)
+                                        .ignoresSafeArea()
                         }
                         .frame(minWidth: 150, idealWidth: 200, maxWidth: 300, maxHeight: .infinity)
                         .edgesIgnoringSafeArea(.all)
                         .padding(.all, 0.0)
+                        
+                        
                         if selected == nil{
                                 Text("").frame(maxWidth: .infinity, maxHeight: .infinity)
                         }else{
                                 VStack(spacing:0){
                                         
                                         MessageHeader(userName: $selected)
+                                        Divider()
                                         MessageBody()
                                         MessageInput()
                                                 .frame(minHeight: 150, idealHeight: 200, maxHeight: 300)

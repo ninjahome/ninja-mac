@@ -12,17 +12,20 @@ struct MessageHeader: View {
         @Binding  var userName:MsgItem?;
         
         var body: some View {
-                HStack(alignment:.top){
+                HStack(){
+                        
                         Text("\(getTime(msg:userName))")
                                 .font(.custom("HelveticaNeue", size: 15))
                         Spacer()
                         Button(action: addItem) {
                                 Image(systemName: "ellipsis")
+                                        .font(.custom("", size: 20))
                                 
                         }
                         .buttonStyle(.borderless)
                 }
-                .padding()
+                .frame(height:60)
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 .background(Color(red: 0.952, green: 0.952, blue: 0.952))
                 
         }

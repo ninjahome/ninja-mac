@@ -52,8 +52,6 @@ struct MessageView: View {
                         VStack(spacing:0){
                                 
                                 MessageHeader(userName: $selected)
-                                        .frame(height: 65)
-                                
                                 MessageBody()
                                 
                                 MessageInput()

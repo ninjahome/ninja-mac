@@ -15,30 +15,37 @@ struct MessageBody: View {
         var body: some View {
                 ScrollViewReader { proxy in
                         ScrollView(.vertical, showsIndicators: showIndicator) {
-                                Button("Scroll to Bottom") {
-                                        withAnimation {
-                                                proxy.scrollTo(bottomID)
-                                        }
-                                }
-                                .id(topID)
-                                
-                                VStack(spacing: 0) {
+                                VStack(spacing: 10) {
                                         ForEach(0..<100) { i in
+                                                
                                                 if i % 2 == 0{
-                                                        Text("sss").id(i)
+                                                       
+                                                        Text("sss")
+                                                                .id(i)
+                                                                .onTapGesture {
+                                                                        print("sss")
+                                                                }
+                                                                .frame(maxWidth:.infinity,minHeight:50, maxHeight: 60)
+                                                                .background(.purple).cornerRadius(5)
                                                 }else{
-                                                        Text("bbbb").id(i)
+                                                        Text("bbbb")
+                                                                .id(i)
+                                                                .onTapGesture {
+                                                                        print("bbb")
+                                                                } .frame(maxWidth:.infinity,minHeight:50, maxHeight: 60)
+                                                                .background(.green)
+                                                                .cornerRadius(5)
                                                 }
                                         }
                                 }
                                 .frame(maxWidth:.infinity, maxHeight: .infinity)
                                 
-                                Button("Top") {
-                                        withAnimation {
-                                                proxy.scrollTo(topID)
-                                        }
-                                }
-                                .id(bottomID)
+//                                Button("Top") {
+//                                        withAnimation {
+//                                                proxy.scrollTo(topID)
+//                                        }
+//                                }
+//                                .id(bottomID)
                         }
                 }
                 .background(.red)

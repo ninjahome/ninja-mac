@@ -18,7 +18,7 @@ struct ContentView: View {
                         Spacer().frame(width: 0)
                         switch tabIdx{
                         case 0:
-                                MessageView()
+                                MessageMainView()
                         case 1:
                                 ContactView()
                         default:

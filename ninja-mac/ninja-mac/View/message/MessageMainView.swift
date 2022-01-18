@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MessageView: View {
+struct MessageMainView: View {
         
         @State private var searchText:String = ""
         
@@ -48,20 +48,19 @@ struct MessageView: View {
                         .frame(minWidth: 150, idealWidth: 200, maxWidth: 300, maxHeight: .infinity)
                         .edgesIgnoringSafeArea(.all)
                         .padding(.all, 0.0)
-                        
-                        VStack(spacing:0){
-                                
-                                MessageHeader(userName: $selected)
-                                MessageBody()
-                                
-                                MessageInput()
-                                .frame(minHeight: 150, idealHeight: 200, maxHeight: 350)
-                                
-                                Spacer().frame(height:3)
+                        if selected == nil{
+                                Text("").frame(maxWidth: .infinity, maxHeight: .infinity)
+                        }else{
+                                VStack(spacing:0){
+                                        
+                                        MessageHeader(userName: $selected)
+                                        MessageBody()
+                                        MessageInput()
+                                                .frame(minHeight: 150, idealHeight: 200, maxHeight: 350)
+                                }
+                                .ignoresSafeArea()
+                                .padding(.all, 0.0)
                         }
-                        .ignoresSafeArea()
-                        .background(.blue)
-                        .padding(.all, 0.0)
                 }
                 .onAppear{
                         if items.count > selectedIdx {
@@ -110,8 +109,7 @@ private let itemFormatter: DateFormatter = {
 struct ChatMessage_Previews: PreviewProvider {
         static var previews: some View {
                 Group {
-                        MessageView()
-                        MessageView()
+                        MessageMainView()
                 }
         }
 }

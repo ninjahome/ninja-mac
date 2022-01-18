@@ -16,7 +16,7 @@ struct MessageHeader: View {
                         Text("\(getTime(msg:userName))").font(.title2)
                         Spacer()
                          Button(action: addItem) {
-                                 Image(systemName: "ellipsis")
+                                 Image(systemName: "ellipsis").resizable().frame(width: 32, height: 32, alignment: .center)
                          }
                         .buttonStyle(.borderless)
 //                        .background(.red)

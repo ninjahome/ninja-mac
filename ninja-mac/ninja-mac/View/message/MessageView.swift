@@ -19,16 +19,6 @@ struct MessageView: View {
         
         private var items: FetchedResults<MsgItem>
         
-        //        struct Ocean: Identifiable, Hashable {
-        //             let name: String
-        //             let id = UUID()
-        //             let stats: [String: String]
-        //         }
-        //        class OceanStore: ObservableObject {
-        //             @Published var oceans = [Ocean]()
-        //             func loadStats() async -> Void {}
-        //         }
-        //        @EnvironmentObject var store: OceanStore
         @State var selected: MsgItem? = nil
         @State private var selectedIdx: Int = 0
         @State var indexPathToSetVisible: IndexPath?
@@ -44,9 +34,6 @@ struct MessageView: View {
                                                 MessageItemView()
                                         }
                                 }
-                                //                .refreshable {
-                                //                        await store.loadStats()
-                                //                }
                                 //                .toolbar{
                                 //                    ToolbarItem {
                                 //                        Button(action: addItem) {
@@ -54,7 +41,7 @@ struct MessageView: View {
                                 //                        }
                                 //                    }
                                 //                }
-//                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -15))
+//.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -15))
                                 .listStyle(.plain)
                                 .ignoresSafeArea()
                         }
@@ -69,10 +56,12 @@ struct MessageView: View {
                                 
                                 VStack{
                                         MessageHeader(userName: $selected)
-                                        Spacer()
                                         MessageBody()
-                                }.background(.blue)
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                }
+                                .ignoresSafeArea()
+                                .padding(.all, 0.0)
+                                .background(.blue)
+//                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }
                 }
                 

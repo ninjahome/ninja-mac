@@ -8,53 +8,17 @@
 import SwiftUI
 
 struct ContactMainView: View {
-        @State private var searchText:String = ""
-        @State var selected: Int? = nil
         
-        @Environment(\.managedObjectContext) private var viewContext
-        @FetchRequest(
-                sortDescriptors: [NSSortDescriptor(keyPath: \MsgItem.timestamp, ascending: true)],
-                animation: .default)
-        private var items: FetchedResults<MsgItem>
-        
-        struct ToggleStates {
-                var oneIsOn: Bool = false
-                var twoIsOn: Bool = true
-        }
-        @State private var toggleStates = ToggleStates()
-        @State private var topExpanded: Bool = true
+        @State var selected: MsgItem? = nil
         
         var body: some View {
                 
                 HSplitView {
-                        VStack{
-                                search_contact(searchText: $searchText)
-                                DisclosureGroup("SavedGroup", isExpanded: $topExpanded) {
-                                        
-                                        List(selection: $selected){
-                                                ForEach(items, id: \.self){
-                                                        item in
-                                                        MessageItemView()
-                                                }
-                                        }
-                                        .listStyle(.plain)
-                                        .ignoresSafeArea()
-                                }
-                                
-                                //                                List(selection: $selected){
-                                //                                        ForEach(items, id: \.self){
-                                //                                                item in
-                                //                                                MessageItemView()
-                                //                                        }
-                                //                                }
-                                //                                .listStyle(.plain)
-                                //                                .ignoresSafeArea()
-                                
-                        }
-                        .frame(minWidth: 150, idealWidth: 200, maxWidth: 300, maxHeight: .infinity)
+                        
+                        ContectMenuView(selected:$selected)
+                                .frame(minWidth: 150, idealWidth: 200, maxWidth: 300, maxHeight: .infinity)
                         .edgesIgnoringSafeArea(.all)
                         .padding(.all, 0.0)
-                        
                         
                         detailView.frame(maxWidth: .infinity, maxHeight: .infinity)
                 }.background(Color(red: 0.949, green: 0.949, blue: 0.949))
@@ -75,7 +39,56 @@ struct ContactMainView: View {
                         .frame(height: 40)
                         .frame(minWidth: 150, maxWidth: 200)
         }
+}
+
+struct ContectMenuView:View{
+        @State private var searchText:String = ""
+        @Binding var selected: MsgItem?
         
+        @Environment(\.managedObjectContext) private var viewContext
+        @FetchRequest(
+                sortDescriptors: [NSSortDescriptor(keyPath: \MsgItem.timestamp, ascending: true)],
+                animation: .default)
+        private var items: FetchedResults<MsgItem>
+        
+        @State private var savedGrpExpanded: Bool = false
+        @State private var contactExpanded: Bool = false
+        var body: some View{
+                VStack(spacing:0){
+                        search_contact(searchText: $searchText)
+                        ScrollView{
+                                
+                                DisclosureGroup( isExpanded: $savedGrpExpanded) {
+//                                        List(selection:$selected){
+//                                        ForEach(items, id: \.self){
+//                                                item in
+//                                                ContactItem()
+//                                        }}
+//                                        List(
+//                                        List("Favorite", selection: $selected){
+//                                        Picker("Favorite Color", selection: $selected) {
+                                                ForEach(items, id: \.self){
+                                                       item in
+                                                       ContactItem()
+                                               }
+//                                            }
+                                        
+                                }label: {
+                                        Label("Saved Group", systemImage: "thermometer")
+                                              .font(.headline)
+                                    }
+                                
+                                
+                                DisclosureGroup("Contacts", isExpanded: $contactExpanded) {
+                                        ForEach(items, id: \.self){
+                                                item in
+                                                ContactItem()
+                                        }
+                                }
+                        }
+                        Spacer()
+                }
+        }
 }
 
 struct Contact_Previews: PreviewProvider {

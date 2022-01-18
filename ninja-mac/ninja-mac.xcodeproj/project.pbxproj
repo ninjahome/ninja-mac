@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6918A3812796B99B00AEEDCC /* search_contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6918A3802796B99B00AEEDCC /* search_contact.swift */; };
+		6918A3842796CFE800AEEDCC /* ContactItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6918A3832796CFE800AEEDCC /* ContactItem.swift */; };
 		6984D705278E89C100D2F0D7 /* searchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6984D704278E89C100D2F0D7 /* searchView.swift */; };
 		698CE969278BFA31009D8074 /* ninja_macApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698CE968278BFA31009D8074 /* ninja_macApp.swift */; };
 		698CE96B278BFA31009D8074 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698CE96A278BFA31009D8074 /* ContentView.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		6918A3802796B99B00AEEDCC /* search_contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search_contact.swift; sourceTree = "<group>"; };
+		6918A3832796CFE800AEEDCC /* ContactItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactItem.swift; sourceTree = "<group>"; };
 		6984D704278E89C100D2F0D7 /* searchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchView.swift; sourceTree = "<group>"; };
 		698CE965278BFA31009D8074 /* ninja-mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ninja-mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		698CE968278BFA31009D8074 /* ninja_macApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ninja_macApp.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				69BC6677278D8CCA00EB2E2C /* ContactMainView.swift */,
+				6918A3832796CFE800AEEDCC /* ContactItem.swift */,
 				6918A3802796B99B00AEEDCC /* search_contact.swift */,
 			);
 			path = contact;
@@ -245,6 +248,7 @@
 				69BC6676278D851400EB2E2C /* MessageItemView.swift in Sources */,
 				69BDD3912790297C00EF76DE /* ChatItem.swift in Sources */,
 				698CE975278BFA32009D8074 /* ninja_mac.xcdatamodeld in Sources */,
+				6918A3842796CFE800AEEDCC /* ContactItem.swift in Sources */,
 				698CE969278BFA31009D8074 /* ninja_macApp.swift in Sources */,
 				69BC667A278D8CE200EB2E2C /* SettingView.swift in Sources */,
 			);

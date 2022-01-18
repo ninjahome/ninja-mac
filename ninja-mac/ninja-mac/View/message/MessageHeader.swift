@@ -22,7 +22,6 @@ struct MessageHeader: View {
                         }
                         .buttonStyle(.borderless)
                 }
-//                .padding(.all, 0.0)
                 .padding()
                 .background(Color(red: 0.952, green: 0.952, blue: 0.952))
                 

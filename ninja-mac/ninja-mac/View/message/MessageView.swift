@@ -49,26 +49,27 @@ struct MessageView: View {
                         .edgesIgnoringSafeArea(.all)
                         .padding(.all, 0.0)
                         
-                        VStack{
+                        VStack(spacing:0){
+                                
                                 MessageHeader(userName: $selected)
                                         .frame(height: 65)
                                 
                                 MessageBody()
                                 
                                 MessageInput()
-                                        .frame(minHeight: 150, idealHeight: 200, maxHeight: 350)
+                                .frame(minHeight: 150, idealHeight: 200, maxHeight: 350)
+                                
+                                Spacer().frame(height:3)
                         }
                         .ignoresSafeArea()
                         .background(.blue)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
+                        .padding(.all, 0.0)
                 }
-                
                 .onAppear{
                         if items.count > selectedIdx {
                                 selected = items[selectedIdx]
                         }
                 }
-                //        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
         }
         
         
@@ -110,6 +111,9 @@ private let itemFormatter: DateFormatter = {
 
 struct ChatMessage_Previews: PreviewProvider {
         static var previews: some View {
-                MessageView()
+                Group {
+                        MessageView()
+                        MessageView()
+                }
         }
 }

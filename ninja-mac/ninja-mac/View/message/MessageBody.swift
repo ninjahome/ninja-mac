@@ -31,6 +31,7 @@ struct MessageBody: View {
                                                 }
                                         }
                                 }
+                                .frame(maxWidth:.infinity, maxHeight: .infinity)
                                 
                                 Button("Top") {
                                         withAnimation {
@@ -40,7 +41,6 @@ struct MessageBody: View {
                                 .id(bottomID)
                         }
                 }
-                .padding()
                 .background(.red)
         }
 }

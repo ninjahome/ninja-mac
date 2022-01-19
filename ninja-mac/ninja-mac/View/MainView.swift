@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct MainView: View {
         @State  var tabIdx = 0
         var body: some View {
                 HStack(alignment:.top) {
@@ -35,6 +35,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
-                ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext).background(.black)
+                MainView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext).background(.black)
         }
 }

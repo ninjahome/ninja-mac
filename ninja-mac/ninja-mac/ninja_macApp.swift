@@ -15,10 +15,18 @@ struct ninja_macApp: App {
                 print("\n",String(cString:v!))
         }
         
+        @AppStorage("username") var username: String = ""
+        
         var body: some Scene {
+                
                 WindowGroup {
-                        ContentView()
+                        if username==""{
+                                LoginView()
+                                        .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                        }else{
+                        MainView()
                                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                        }
                 }.windowStyle(HiddenTitleBarWindowStyle())
         }
         

@@ -8,39 +8,125 @@
 import SwiftUI
 
 struct SettingView: View {
-        @Namespace var topID
-        @Namespace var bottomID
-        @State var showIndicator:Bool = false
+        @State var nickName:String = ""
         var body: some View {
-                ScrollViewReader { proxy in
-                        ScrollView(.vertical, showsIndicators: showIndicator) {
-                            Button("Scroll to Bottom") {
-                                withAnimation {
-                                    proxy.scrollTo(bottomID)
+                VStack{
+                        VStack{
+                                Image("test").resizable()
+                                        .frame(width: 120, height: 120)
+                                        .clipShape(Circle())
+                                Button() {
+                                        print("edit nickname")
+                                }label: {
+                                        Label("Edit", systemImage: "square.and.pencil")
+                                }.buttonStyle(.plain)
+                        }.padding()
+                        
+                        Divider()
+                        
+                        VStack{
+                                HStack{
+                                        Text("NickName:")
+                                        Spacer()
+                                        TextField("tailor swift", text: $nickName)
+                                        Button() {
+                                                print("save nickname")
+                                        }label: {
+                                                Label("Save", systemImage: "square.and.arrow.down")
+                                        }.buttonStyle(.plain)
+                                        
+                                }.padding()
+                                
+                                HStack{
+                                        Text("Balance:")
+                                        Spacer()
+                                        Text("60.7NCT")
+                                        Button() {
+                                                print("save nickname")
+                                        }label: {
+                                                Label("Recharge", systemImage: "wallet.pass")
+                                        }.buttonStyle(.plain)
+                                }.padding()
+                                
+                                HStack{
+                                        Text("Author Friend:")
+                                        Spacer()
+                                        Button() {
+                                                print("Author friend")
+                                        }label: {
+                                                Label("Authorize", systemImage: "creditcard.and.123")
+                                        }.buttonStyle(.plain)
+                                }.padding()
+                                
+                        }.padding()
+                        
+                        Divider()
+                        
+                        VStack{
+                                
+                                HStack{
+                                        Text("Address:")
+                                        Spacer()
+                                        Text("NJ7CovsxYjK3JgMwHVuTv86vHqgmhRpitrgzAj335AkiDi")
+                                        Button() {
+                                                print("Author friend")
+                                        }label: {
+                                                Image(systemName: "qrcode")
+                                        }.buttonStyle(.plain)
+                                        Button() {
+                                                print("Copy")
+                                        }label: {
+                                                Image(systemName: "doc.on.doc")
+                                        }.buttonStyle(.plain)
+                                        
+                                }.padding()
+                                
+                                HStack{
+                                        Text("Change Password:")
+                                        Spacer()
+                                        Button() {
+                                                print("Change Password:")
+                                        }label: {
+                                                Image(systemName: "lock.circle")
+                                        }.buttonStyle(.plain)
+                                        
+                                }.padding()
+                                
+                                HStack{
+                                        Text("Export Account:")
+                                        Spacer()
+                                        Button() {
+                                                print("export account:")
+                                        }label: {
+                                                Image(systemName: "tray.and.arrow.up")
+                                        }.buttonStyle(.plain)
+                                        
+                                }.padding()
+                                
+                                HStack{
+                                        Text("Import Account:")
+                                        Spacer()
+                                        Button() {
+                                                print("import account:")
+                                        }label: {
+                                                Image(systemName: "tray.and.arrow.down")
+                                        }.buttonStyle(.plain)
+                                        
+                                }.padding()
+                                
+                        }.padding()
+                        Divider()
+                        HStack{
+                                Button("Destroy Account") {
+                                        print("import account:")
                                 }
-                            }
-                            .id(topID)
-
-                            VStack(spacing: 0) {
-                                ForEach(0..<100) { i in
-                                    color(fraction: Double(i) / 100)
-                                        .frame(height: 32)
+                                Spacer()
+                                Button("New Account") {
+                                        print("import account:")
                                 }
-                            }
-
-                            Button("Top") {
-                                    showIndicator = !showIndicator
-                                withAnimation {
-                                    proxy.scrollTo(topID)
-                                }
-                            }
-                            .id(bottomID)
                         }
-                }
-        }
-
-        func color(fraction: Double) -> Color {
-            Color(red: fraction, green: 1 - fraction, blue: 0.5)
+                        Spacer()
+                }.padding()
         }
 }
 

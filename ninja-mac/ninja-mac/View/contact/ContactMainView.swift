@@ -108,16 +108,19 @@ struct ContactView: View {
                         VStack(alignment:.leading){
                                 HStack{
                                         Text("address:")
+                                        Spacer()
                                         Text("NJ7CovsxYjK3JgMwHVuTv86vHqgmhRpitrgzAj335AkiDi")
                                 }.padding()
                                 
                                 HStack{
                                         Text("balance:")
+                                        Spacer()
                                         Text("60.28NCT")
                                 }.padding()
                                 
                                 HStack{
                                         Text("time:")
+                                        Spacer()
                                         if let date = selected?.timestamp{
                                                 Text( itemFormatter.string(from:date))
                                         }else{
@@ -127,6 +130,7 @@ struct ContactView: View {
                                 
                                 HStack{
                                         Text("alias:")
+                                        Spacer()
                                         TextField("tailor swift", text: $alias)
                                 }.padding()
                                 

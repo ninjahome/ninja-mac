@@ -15,23 +15,24 @@ struct ninja_macApp: App {
                 print("\n",String(cString:v!))
         }
         
-        @AppStorage("username") var username: String = ""
+        @AppStorage("cache_account_json") var walletJson: String = ""
         
         var body: some Scene {
                 
                 WindowGroup {
-                        if username==""{
-                                LoginView()
+                        if walletJson == ""{
+                                ScanQRView()
                                         .environment(\.managedObjectContext, persistenceController.container.viewContext)
                         }else{
-                        MainView()
-                                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                                LoginView(wJson:$walletJson)
+                                        .environment(\.managedObjectContext, persistenceController.container.viewContext)
                         }
-                }.windowStyle(HiddenTitleBarWindowStyle())
+                }
+                .windowStyle(HiddenTitleBarWindowStyle())
         }
         
         func Test(){
                 createAccount("123".toGoStr())
-//                GroupImage("".toGoStr())
+                //                GroupImage("".toGoStr())
         }
 }

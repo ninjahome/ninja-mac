@@ -20,6 +20,7 @@
 		698CE981278BFFCD009D8074 /* ninjaLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 698CE97D278BFCB5009D8074 /* ninjaLib.a */; };
 		698D25F12798016500D9A6F1 /* ScanQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D25F02798016500D9A6F1 /* ScanQRView.swift */; };
 		698D25F32798017100D9A6F1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D25F22798017100D9A6F1 /* LoginView.swift */; };
+		698D25F527981A9A00D9A6F1 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D25F427981A9A00D9A6F1 /* Wallet.swift */; };
 		6990D05D27964BE800128CF3 /* MessageInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D05C27964BE800128CF3 /* MessageInput.swift */; };
 		69BC6672278D808C00EB2E2C /* MessageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6671278D808C00EB2E2C /* MessageMainView.swift */; };
 		69BC6676278D851400EB2E2C /* MessageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6675278D851400EB2E2C /* MessageItemView.swift */; };
@@ -49,6 +50,7 @@
 		698CE980278BFF4F009D8074 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		698D25F02798016500D9A6F1 /* ScanQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRView.swift; sourceTree = "<group>"; };
 		698D25F22798017100D9A6F1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		698D25F427981A9A00D9A6F1 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		6990D05C27964BE800128CF3 /* MessageInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInput.swift; sourceTree = "<group>"; };
 		69BC6671278D808C00EB2E2C /* MessageMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMainView.swift; sourceTree = "<group>"; };
 		69BC6675278D851400EB2E2C /* MessageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageItemView.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				69BDD3902790297C00EF76DE /* ChatItem.swift */,
 				69BDD39327902D6900EF76DE /* ModelData.swift */,
+				698D25F427981A9A00D9A6F1 /* Wallet.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				69BDD39627917E8D00EF76DE /* MessageHeader.swift in Sources */,
 				69BC6676278D851400EB2E2C /* MessageItemView.swift in Sources */,
 				69BDD3912790297C00EF76DE /* ChatItem.swift in Sources */,
+				698D25F527981A9A00D9A6F1 /* Wallet.swift in Sources */,
 				698CE975278BFA32009D8074 /* ninja_mac.xcdatamodeld in Sources */,
 				6918A3842796CFE800AEEDCC /* ContactItem.swift in Sources */,
 				698CE969278BFA31009D8074 /* ninja_macApp.swift in Sources */,

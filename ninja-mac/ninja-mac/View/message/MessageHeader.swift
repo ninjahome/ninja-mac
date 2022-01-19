@@ -29,12 +29,6 @@ struct MessageHeader: View {
                 .background(Color(red: 0.952, green: 0.952, blue: 0.952))
                 
         }
-        private let itemFormatter: DateFormatter = {
-                let formatter = DateFormatter()
-                formatter.dateStyle = .full
-                formatter.timeStyle = .full
-                return formatter
-        }()
         
         private func getTime(msg:MsgItem?)-> String{
                 guard let date = msg?.timestamp else{

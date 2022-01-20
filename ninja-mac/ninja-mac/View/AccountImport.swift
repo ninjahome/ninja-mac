@@ -8,7 +8,6 @@
 import SwiftUI
 import ninjaLib
 
-
 struct AccountImport: View {
         
         @Binding var wJson:String
@@ -16,7 +15,7 @@ struct AccountImport: View {
         @ObservedObject var wallet:Wallet
         @State var showAuth:Bool=false
         @State var showTips:Bool=false
-        
+        @State var alertMessage:String = ""
         @State var callback:AuthCallBack? = nil
         
         var body: some View {
@@ -44,6 +43,7 @@ struct AccountImport: View {
                         Button(action: {
                                 if self.inputWalletStr == ""{
                                         showTips=true
+                                        alertMessage = "Input your wallet json string please!"
                                         return
                                 }
                                 showAuth = true
@@ -58,7 +58,7 @@ struct AccountImport: View {
                                 .cornerRadius(5)
                                 .alert(isPresented: $showTips){
                                         Alert(title: Text("Tips"),
-                                              message: Text("Input your wallet json string please!"),
+                                              message: Text(alertMessage),
                                               dismissButton: .default(Text("OK")))
                                         
                                 }
@@ -68,8 +68,8 @@ struct AccountImport: View {
                         callback = {
                                 pass in
                                 
-                                
-                                
+                                importAccount(pass.toGoStr(), inputWalletStr.toGoStr())
+                                alertMessage=""
                                 return true
                         }
                 }
@@ -80,6 +80,8 @@ struct AccountImport: View {
                         PasswordView(isVisible: $showAuth, callback: callback!)
                 }
         }
+        
+        
 }
 
 struct CreateAccount_Previews: PreviewProvider {

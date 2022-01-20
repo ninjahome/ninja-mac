@@ -8,8 +8,17 @@
 import SwiftUI
 import ninjaLib
 
+final class AppDelegate: NSObject, NSApplicationDelegate {
+        func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+                return true
+        }
+}
+
 @main
 struct ninja_macApp: App {
+        @NSApplicationDelegateAdaptor(AppDelegate.self)
+        var appDelegate
+        
         let persistenceController = PersistenceController.shared
         var ss:UserInterfaceAPI={v in
                 print("\n",String(cString:v!))

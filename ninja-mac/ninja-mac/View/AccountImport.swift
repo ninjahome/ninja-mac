@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import ninjaLib
+
 
 struct AccountImport: View {
         
         @Binding var wJson:String
-        @State var password:String = ""
         @State var inputWalletStr:String = ""
         @ObservedObject var wallet:Wallet
+        @State var showAuth:Bool=false
+        @State var showTips:Bool=false
+        
+        @State var callback:AuthCallBack? = nil
         
         var body: some View {
                 VStack{
@@ -29,30 +34,19 @@ struct AccountImport: View {
                                 .textSelection(.enabled)
                         
                         
-                Spacer().frame(height:10)
-                        
-                        SecureField(
-                                "password",
-                                text: $password,
-                                onCommit: {
-                                        print("onCommit:", self.password)
-                                })
-                                .font(.title2)
-                                .buttonStyle(.plain)
-//                                .frame(width: 200)
-                                .padding(.all, 2)
-                                .cornerRadius(6)
                         Spacer().frame(height:10)
-                       
-                        Text("input json string and password of ninja wallet ")
+                        
+                        Text("input json string of ninja wallet ")
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
                         
-                        
-                
-                Spacer()
+                        Spacer()
                         Button(action: {
-                                print("password of account:", password)
+                                if self.inputWalletStr == ""{
+                                        showTips=true
+                                        return
+                                }
+                                showAuth = true
                         }, label:{
                                 Text("Import Ninja")
                                         .font(.title3)
@@ -62,17 +56,34 @@ struct AccountImport: View {
                                 .buttonStyle(.borderless)
                                 .background(Color(red: 0.03, green: 0.756, blue: 0.374))
                                 .cornerRadius(5)
-                        
+                                .alert(isPresented: $showTips){
+                                        Alert(title: Text("Tips"),
+                                              message: Text("Input your wallet json string please!"),
+                                              dismissButton: .default(Text("OK")))
+                                        
+                                }
                         Spacer()
                         
-                }.padding(EdgeInsets(top: 30, leading: 35, bottom: 10, trailing: 35))
-                        .frame(width: 320, height: 460)
-                        .background(.white)
+                }.onAppear{
+                        callback = {
+                                pass in
+                                
+                                
+                                
+                                return true
+                        }
+                }
+                .padding(EdgeInsets(top: 30, leading: 35, bottom: 10, trailing: 35))
+                .frame(width: 320, height: 400)
+                .background(.white)
+                .sheet(isPresented: $showAuth) {
+                        PasswordView(isVisible: $showAuth, callback: callback!)
+                }
         }
 }
 
 struct CreateAccount_Previews: PreviewProvider {
-        @State static var password: String=""
+        @State static var password: String = ""
         @StateObject  static var wallet:Wallet = Wallet()
         static var previews: some View {
                 AccountImport(wJson: $password, wallet: wallet)

@@ -73,8 +73,15 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern char* initConf(UserInterfaceAPI callback);
-extern char* createAccount(GoString auth);
+extern char* initConf(GoString endPoint, GoString infuraToken, GoInt8 networkID, UserInterfaceAPI callback);
+extern GoInterface importAccount(GoString auth, GoString cipherTxt);
+
+/* Return type for GroupImage */
+struct GroupImage_return {
+	char* r0;
+	GoInterface r1;
+};
+extern struct GroupImage_return GroupImage(GoString b);
 
 #ifdef __cplusplus
 }

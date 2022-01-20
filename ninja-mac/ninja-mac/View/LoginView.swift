@@ -7,27 +7,6 @@
 
 import SwiftUI
 let testStr:String="""
-{
-        "address": "NJ5Y3w9m9Bhxw9phnGhm3TRoBanF3mr91TQNjciMnAEuFg",
-        "crypto": {
-                "cipher": "aes-128-ctr",
-                "ciphertext": "d37f0efb613035771fe73a5a38e23046792b5da3daea52c58deddad1620dc5d9b684ba345e7e05dbe9821fdeb400c84825c5fdb7fcb99b96c29bda62f64ec8f8",
-                "cipherParams": {
-                        "iv": "e110e9c914e32dd039f865acfae33fa0"
-                },
-                "kdf": "scrypt",
-                "kdfParams": {
-                        "dklen": 32,
-                        "n": 262144,
-                        "p": 1,
-                        "r": 8,
-                        "salt": "0bfdfe0f145dfe8344d3eaf7e8732b0daea944c9f1f5cf5cae9069b517d1fb71"
-                },
-                "mac": "cab3dc5b039b41afbf083e8134c783d7d978f8cf4a24da73f0a712323bee1165"
-        },
-        "id": "6afcf0d4-0fd6-44bc-b8cd-df328924a60d",
-        "version": 1
-}
 """
 struct LoginView: View {
         @Binding var wJson:String

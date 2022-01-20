@@ -75,8 +75,8 @@ extern "C" {
 
 extern char* initConf(GoString endPoint, GoString infuraToken, GoInt8 networkID, Interface callback);
 extern void setPushParam(GoString devToken, GoInt devType, GoUint8 debug);
-extern GoString importAccount(GoString auth, GoString cipherTxt);
-extern char* GroupImage(GoString b);
+extern char* importAccount(GoString auth, GoString cipherTxt);
+extern char* GroupImage(char* b, GoInt sz);
 
 #ifdef __cplusplus
 }

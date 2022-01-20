@@ -24,6 +24,7 @@
 		6990D05D27964BE800128CF3 /* MessageInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D05C27964BE800128CF3 /* MessageInput.swift */; };
 		69A5B19C27992A99001E96EF /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A5B19B27992A99001E96EF /* PasswordView.swift */; };
 		69A5B19E2799476C001E96EF /* ServiceCallBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A5B19D2799476C001E96EF /* ServiceCallBack.swift */; };
+		69A5B1A0279977C7001E96EF /* LibWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A5B19F279977C7001E96EF /* LibWrap.swift */; };
 		69BC6672278D808C00EB2E2C /* MessageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6671278D808C00EB2E2C /* MessageMainView.swift */; };
 		69BC6676278D851400EB2E2C /* MessageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6675278D851400EB2E2C /* MessageItemView.swift */; };
 		69BC6678278D8CCA00EB2E2C /* ContactMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BC6677278D8CCA00EB2E2C /* ContactMainView.swift */; };
@@ -56,6 +57,7 @@
 		6990D05C27964BE800128CF3 /* MessageInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInput.swift; sourceTree = "<group>"; };
 		69A5B19B27992A99001E96EF /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
 		69A5B19D2799476C001E96EF /* ServiceCallBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCallBack.swift; sourceTree = "<group>"; };
+		69A5B19F279977C7001E96EF /* LibWrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibWrap.swift; sourceTree = "<group>"; };
 		69BC6671278D808C00EB2E2C /* MessageMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageMainView.swift; sourceTree = "<group>"; };
 		69BC6675278D851400EB2E2C /* MessageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageItemView.swift; sourceTree = "<group>"; };
 		69BC6677278D8CCA00EB2E2C /* ContactMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactMainView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				698CE968278BFA31009D8074 /* ninja_macApp.swift */,
 				698CE97E278BFEBB009D8074 /* utils.swift */,
 				69A5B19D2799476C001E96EF /* ServiceCallBack.swift */,
+				69A5B19F279977C7001E96EF /* LibWrap.swift */,
 				6984D706278E8A0000D2F0D7 /* View */,
 				698CE96C278BFA32009D8074 /* Assets.xcassets */,
 				698CE971278BFA32009D8074 /* Persistence.swift */,
@@ -273,6 +276,7 @@
 				69BC6676278D851400EB2E2C /* MessageItemView.swift in Sources */,
 				69BDD3912790297C00EF76DE /* ChatItem.swift in Sources */,
 				698D25F527981A9A00D9A6F1 /* Wallet.swift in Sources */,
+				69A5B1A0279977C7001E96EF /* LibWrap.swift in Sources */,
 				698CE975278BFA32009D8074 /* ninja_mac.xcdatamodeld in Sources */,
 				69A5B19E2799476C001E96EF /* ServiceCallBack.swift in Sources */,
 				6918A3842796CFE800AEEDCC /* ContactItem.swift in Sources */,

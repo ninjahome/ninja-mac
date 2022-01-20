@@ -7,6 +7,7 @@
 
 import Foundation
 import ninjaLib
+import AppKit
 
 extension String {
         var localized: String {
@@ -31,3 +32,22 @@ public let itemFormatter: DateFormatter = {
         formatter.timeStyle = .medium
         return formatter
 }()
+
+func pickFile()->URL?{
+        
+        let dialog = NSOpenPanel();
+
+        dialog.title                   = "Choose a file";
+        dialog.showsResizeIndicator    = true;
+        dialog.showsHiddenFiles        = false;
+        dialog.allowsMultipleSelection = false;
+        dialog.canChooseDirectories = false;
+        dialog.allowedContentTypes        = [.json,.text];
+
+        if (dialog.runModal() ==  NSApplication.ModalResponse.OK) {
+                return dialog.url
+        }
+        
+        return nil
+        
+}

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ninjaLib
 
 struct AccountImport: View {
         
@@ -16,10 +15,20 @@ struct AccountImport: View {
         @State var showAuth:Bool=false
         @State var showTips:Bool=false
         @State var alertMessage:String = ""
-        @State var callback:AuthCallBack? = nil
+        @State var filePath:String = ""
         
         var body: some View {
                 VStack{
+                        HStack{
+                                Text(filePath)
+                                        .font(.subheadline)
+                                        .foregroundColor(.gray)
+                                Button{
+                                        loadWalletJsonFromFile()
+                                }label: {
+                                        Image(systemName: "folder")
+                                }
+                        }.padding()
                         TextEditor(text: $inputWalletStr)
                                 .padding(EdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
                                 .ignoresSafeArea()
@@ -64,24 +73,37 @@ struct AccountImport: View {
                                 }
                         Spacer()
                         
-                }.onAppear{
-                        callback = {
-                                pass in
-                                
-                                importAccount(pass.toGoStr(), inputWalletStr.toGoStr())
-                                alertMessage=""
-                                return true
-                        }
                 }
                 .padding(EdgeInsets(top: 30, leading: 35, bottom: 10, trailing: 35))
-                .frame(width: 320, height: 400)
+                .frame(width: 320, height: 480)
                 .background(.white)
                 .sheet(isPresented: $showAuth) {
-                        PasswordView(isVisible: $showAuth, callback: callback!)
+                        PasswordView(isVisible: $showAuth, callback: self.unlockTheInputWalletJson)
                 }
         }
         
+        private func loadWalletJsonFromFile(){
+                guard let url = pickFile() else{
+                        return
+                }
+                do{
+                        let str = try String(contentsOf: url)
+                        if str != ""{
+                                self.inputWalletStr = str
+                        }
+                }catch let err{
+                        print(err)
+                }
+        }
         
+        private func unlockTheInputWalletJson(auth:String)->Error?{
+                
+                guard let err = LibWrap.ImportAccount(auth: auth, Cpher: inputWalletStr)else{
+                        wJson = inputWalletStr
+                        return nil
+                }
+                return err
+        }
 }
 
 struct CreateAccount_Previews: PreviewProvider {

@@ -10,8 +10,8 @@ let testStr:String="""
 """
 struct LoginView: View {
         @Binding var wJson:String
-        @State var password:String = ""
         @ObservedObject var wallet:Wallet
+        @State var showAuth:Bool=false
         
         var body: some View {
                 VStack{
@@ -29,19 +29,9 @@ struct LoginView: View {
                         Spacer()
                         
                         VStack{
-                                SecureField(
-                                        "password",
-                                        text: $password,
-                                        onCommit: {
-                                                print("onCommit:", self.password)
-                                        })
-                                        .font(.title2)
-                                        .buttonStyle(.plain)
-                                        .padding(.all)
-                                        .cornerRadius(6)
                                 
                                 Button(action: {
-                                        print("password of account:", password)
+                                        showAuth = true
                                 }, label:{
                                         Text("Enter Ninja")
                                                 .font(.title3)
@@ -72,10 +62,18 @@ struct LoginView: View {
                 .padding()
                 .frame(width: 280, height: 372)
                 .background(Color(red: 0.969, green: 0.969, blue: 0.969))
-                .onAppear {
-                        print(self.wJson)
-                        let decoder = JSONDecoder()
+                .sheet(isPresented: $showAuth) {
+                        PasswordView(isVisible: $showAuth, callback: self.unlockTheInputWalletJson)
                 }
+        }
+        
+        private func unlockTheInputWalletJson(auth:String)->Error?{
+                
+                guard let err = LibWrap.ActiveWallet(auth: auth, Cpher: wJson)else{
+                        wallet.address = LibWrap.WalletAddr() ?? ""
+                        return nil
+                }
+                return err
         }
         
         private func switchToImportScene(){
@@ -88,6 +86,6 @@ struct Login_Previews: PreviewProvider {
         @StateObject  static var wallet:Wallet = Wallet()
         @AppStorage("cache_account_json") static var walletJson: String = testStr
         static var previews: some View {
-                LoginView(wJson: $walletJson, password: password, wallet: wallet)
+                LoginView(wJson: $walletJson, wallet: wallet)
         }
 }

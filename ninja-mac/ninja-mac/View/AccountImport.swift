@@ -98,8 +98,9 @@ struct AccountImport: View {
         
         private func unlockTheInputWalletJson(auth:String)->Error?{
                 
-                guard let err = LibWrap.ImportAccount(auth: auth, Cpher: inputWalletStr)else{
+                guard let err = LibWrap.ActiveWallet(auth: auth, Cpher: inputWalletStr)else{
                         wJson = inputWalletStr
+                        wallet.address = LibWrap.WalletAddr() ?? ""
                         return nil
                 }
                 return err

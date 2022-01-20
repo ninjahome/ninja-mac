@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SettingView: View {
+        @EnvironmentObject var wallet:Wallet
         @State var nickName:String = ""
+        
         var body: some View {
                 VStack{
                         VStack{
@@ -20,7 +22,7 @@ struct SettingView: View {
                                 }label: {
                                         Label("Edit", systemImage: "square.and.pencil")
                                 }.buttonStyle(.plain)
-                        }.padding()
+                        }.padding(.all, 10)
                         
                         Divider()
                         
@@ -58,7 +60,7 @@ struct SettingView: View {
                                         }.buttonStyle(.plain)
                                 }.padding()
                                 
-                        }.padding()
+                        }.padding(.all, 10)
                         
                         Divider()
                         
@@ -67,7 +69,7 @@ struct SettingView: View {
                                 HStack{
                                         Text("Address:")
                                         Spacer()
-                                        Text("NJ7CovsxYjK3JgMwHVuTv86vHqgmhRpitrgzAj335AkiDi")
+                                        Text(wallet.address)
                                         Button() {
                                                 print("Author friend")
                                         }label: {
@@ -114,8 +116,10 @@ struct SettingView: View {
                                         
                                 }.padding()
                                 
-                        }.padding()
+                        }.padding(.all, 10)
+                        
                         Divider()
+                        
                         HStack{
                                 Button("Destroy Account") {
                                         print("import account:")
@@ -126,14 +130,15 @@ struct SettingView: View {
                                 }
                         }
                         Spacer()
-                }.padding()
+                }.padding(EdgeInsets(top: 5, leading: 50, bottom: 5, trailing: 50))
         }
 }
 
 
 
 struct Setting_Previews: PreviewProvider {
+        @StateObject  static var wallet:Wallet = Wallet()
         static var previews: some View {
-                SettingView()
+                SettingView().environmentObject(wallet)
         }
 }

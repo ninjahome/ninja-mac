@@ -75,8 +75,9 @@ extern "C" {
 
 extern char* initConf(GoString endPoint, GoString infuraToken, GoInt8 networkID, Interface callback);
 extern void setPushParam(GoString devToken, GoInt devType, GoUint8 debug);
-extern char* importAccount(GoString auth, GoString cipherTxt);
-extern char* GroupImage(char* b, GoInt sz);
+extern char* activeWallet(GoString auth, GoString cipherTxt);
+extern char* groupImage(char* b, GoInt sz);
+extern char* walletAddress();
 
 #ifdef __cplusplus
 }

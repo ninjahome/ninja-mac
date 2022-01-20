@@ -26,7 +26,7 @@ struct MainView: View {
                         }
                         Spacer()
                 }
-                .frame(minWidth: 800, idealWidth: 960, minHeight: 600, idealHeight: 720)
+                .frame(minWidth: 800, idealWidth: 960, minHeight: 720, idealHeight: 800)
                 .background(Color(red: 0.969, green: 0.969, blue: 0.969))
                 .padding(.all, 0.0)
         }

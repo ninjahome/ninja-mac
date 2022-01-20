@@ -18,7 +18,7 @@
 		698CE975278BFA32009D8074 /* ninja_mac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 698CE973278BFA32009D8074 /* ninja_mac.xcdatamodeld */; };
 		698CE97F278BFEBB009D8074 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698CE97E278BFEBB009D8074 /* utils.swift */; };
 		698CE981278BFFCD009D8074 /* ninjaLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 698CE97D278BFCB5009D8074 /* ninjaLib.a */; };
-		698D25F12798016500D9A6F1 /* ScanQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D25F02798016500D9A6F1 /* ScanQRView.swift */; };
+		698D25F12798016500D9A6F1 /* AccountImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D25F02798016500D9A6F1 /* AccountImport.swift */; };
 		698D25F32798017100D9A6F1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D25F22798017100D9A6F1 /* LoginView.swift */; };
 		698D25F527981A9A00D9A6F1 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D25F427981A9A00D9A6F1 /* Wallet.swift */; };
 		6990D05D27964BE800128CF3 /* MessageInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6990D05C27964BE800128CF3 /* MessageInput.swift */; };
@@ -48,7 +48,7 @@
 		698CE97D278BFCB5009D8074 /* ninjaLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = ninjaLib.a; sourceTree = "<group>"; };
 		698CE97E278BFEBB009D8074 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		698CE980278BFF4F009D8074 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		698D25F02798016500D9A6F1 /* ScanQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRView.swift; sourceTree = "<group>"; };
+		698D25F02798016500D9A6F1 /* AccountImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountImport.swift; sourceTree = "<group>"; };
 		698D25F22798017100D9A6F1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		698D25F427981A9A00D9A6F1 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		6990D05C27964BE800128CF3 /* MessageInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInput.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 				6918A3822796B9A100AEEDCC /* contact */,
 				69BC667B278D8F2200EB2E2C /* SideBar.swift */,
 				698D25EF2798014A00D9A6F1 /* setting */,
-				698D25F02798016500D9A6F1 /* ScanQRView.swift */,
+				698D25F02798016500D9A6F1 /* AccountImport.swift */,
 				698D25F22798017100D9A6F1 /* LoginView.swift */,
 			);
 			path = View;
@@ -270,7 +270,7 @@
 				6918A3842796CFE800AEEDCC /* ContactItem.swift in Sources */,
 				698CE969278BFA31009D8074 /* ninja_macApp.swift in Sources */,
 				69BC667A278D8CE200EB2E2C /* SettingView.swift in Sources */,
-				698D25F12798016500D9A6F1 /* ScanQRView.swift in Sources */,
+				698D25F12798016500D9A6F1 /* AccountImport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,15 +16,21 @@ struct ninja_macApp: App {
         }
         
         @AppStorage("cache_account_json") var walletJson: String = ""
-        
+        @StateObject var wallet:Wallet = Wallet()
         var body: some Scene {
                 
                 WindowGroup {
-                        if walletJson == ""{
-                                ScanQRView()
-                                        .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                        }else{
-                                LoginView(wJson:$walletJson)
+                        if wallet.address == ""{
+                                if walletJson == ""{
+                                        AccountImport(wJson: $walletJson, wallet: wallet)
+                                                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                                }else{
+                                        LoginView(wJson:$walletJson, wallet: wallet)
+                                                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                                }
+                        }
+                        else{
+                                MainView().environmentObject(wallet)
                                         .environment(\.managedObjectContext, persistenceController.container.viewContext)
                         }
                 }

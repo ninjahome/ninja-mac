@@ -31,6 +31,9 @@ let testStr:String="""
 """
 struct LoginView: View {
         @Binding var wJson:String
+        @State var password:String = ""
+        @ObservedObject var wallet:Wallet
+        
         var body: some View {
                 VStack{
                         Spacer()
@@ -47,8 +50,19 @@ struct LoginView: View {
                         Spacer()
                         
                         VStack{
+                                SecureField(
+                                        "password",
+                                        text: $password,
+                                        onCommit: {
+                                                print("onCommit:", self.password)
+                                        })
+                                        .font(.title2)
+                                        .buttonStyle(.plain)
+                                        .padding(.all)
+                                        .cornerRadius(6)
+                                
                                 Button(action: {
-                                        print("import account:")
+                                        print("password of account:", password)
                                 }, label:{
                                         Text("Enter Ninja")
                                                 .font(.title3)
@@ -60,7 +74,7 @@ struct LoginView: View {
                                         .cornerRadius(5)
                                 
                                 Button(action: {
-                                        print("import account:")
+                                        switchToImportScene()
                                 }, label:{
                                         Text("Switch Account")
                                                 .font(.title3)
@@ -75,19 +89,26 @@ struct LoginView: View {
                         
                         Spacer()
                         
-                }.padding()
-                        .frame(width: 280, height: 372)
-                        .background(Color(red: 0.969, green: 0.969, blue: 0.969))
-                        .onAppear {
-                                print(self.wJson)
-                                let decoder = JSONDecoder()
-                        }
+                }
+                .padding()
+                .frame(width: 280, height: 372)
+                .background(Color(red: 0.969, green: 0.969, blue: 0.969))
+                .onAppear {
+                        print(self.wJson)
+                        let decoder = JSONDecoder()
+                }
+        }
+        
+        private func switchToImportScene(){
+                self.wJson = ""
         }
 }
 
 struct Login_Previews: PreviewProvider {
+        @State static var password: String=""
+        @StateObject  static var wallet:Wallet = Wallet()
         @AppStorage("cache_account_json") static var walletJson: String = testStr
         static var previews: some View {
-                LoginView(wJson: $walletJson)
+                LoginView(wJson: $walletJson, password: password, wallet: wallet)
         }
 }

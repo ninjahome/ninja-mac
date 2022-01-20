@@ -7,9 +7,7 @@
 
 import Foundation
 
-struct Wallet: Identifiable, Decodable {
-                var id: String
-                var address: String
-                var crypto: String
-                var version: String
+class Wallet: ObservableObject {
+        @Published var address: String = ""
 }
+        

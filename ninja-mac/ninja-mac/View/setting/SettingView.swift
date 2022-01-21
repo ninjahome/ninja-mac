@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingView: View {
         @EnvironmentObject var wallet:Wallet
         @State var nickName:String = ""
-        
+        @State var isShowQR:Bool = false
         var body: some View {
                 VStack{
                         VStack{
@@ -71,10 +71,15 @@ struct SettingView: View {
                                         Spacer()
                                         Text(wallet.address)
                                         Button() {
-                                                print("Author friend")
+                                                self.isShowQR = true
                                         }label: {
                                                 Image(systemName: "qrcode")
-                                        }.buttonStyle(.plain)
+                                        }
+                                        .buttonStyle(.plain)
+                                        .sheet(isPresented:$isShowQR){
+                                                QRCodeView(isVisible: $isShowQR,
+                                                           txtContent: wallet.address)
+                                        }
                                         Button() {
                                                 print("Copy")
                                         }label: {

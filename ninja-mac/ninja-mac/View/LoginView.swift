@@ -12,16 +12,19 @@ struct LoginView: View {
         @Binding var wJson:String
         @ObservedObject var wallet:Wallet
         @State var showAuth:Bool=false
+        @State var nickName:String = "NickName"
+        @State var avatar:Image = Image("logo")
+        
+        @AppStorage("cache_account_json_string") var accountString: String = ""
         
         var body: some View {
                 VStack{
                         Spacer()
                         VStack{
-                                Image("test")
-                                        .resizable()
+                                avatar.resizable()
                                         .frame(width: 80, height: 80)
                                         .cornerRadius(10)
-                                Text("NickName")
+                                Text(nickName)
                                         .padding(EdgeInsets(top: 10, leading: 5, bottom: 10, trailing: 5))
                                         .font(.title3)
                         }.padding()
@@ -66,6 +69,21 @@ struct LoginView: View {
                         PasswordView(isVisible: $showAuth,
                                      callback: self.unlockTheInputWalletJson,
                                      doubleCheck: false)
+                }.onAppear{
+                        
+                        guard let accountDetails = ConvertFromData(data: accountString) else{
+                                //TODO::
+                                return
+                        }
+                        //TODO::image and name
+                        self.nickName = accountDetails.name ?? "nickName"
+                        guard let avatarData = accountDetails.avatar else{
+                                return
+                        }
+                        guard let nsImage =  NSImage(data: avatarData) else{
+                                return
+                        }
+                        avatar =  Image(nsImage:nsImage)
                 }
         }
         

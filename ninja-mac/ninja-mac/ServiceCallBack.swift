@@ -11,7 +11,8 @@ import SwiftUI
 
 class ServiceCallBack:NSObject{
         @AppStorage("save_last_usable_service_ip") var endPoint: String = ""
-        @EnvironmentObject var  wallet:Wallet
+        @ObservedObject var wallet:Wallet = Wallet()
+        @AppStorage("cache_account_json_string") var accountString: String = ""
         
         private static let _inst = ServiceCallBack()
         private var callBack:Interface = Interface()
@@ -24,7 +25,6 @@ class ServiceCallBack:NSObject{
                 return ._inst
         }
         
-        
         func libLog(_ log :String){
                 print("call data json:", log)
         }
@@ -33,13 +33,9 @@ class ServiceCallBack:NSObject{
                 self.endPoint = newIP
                 _ = LibWrap.WSOnline()
         }
-        
-        func metaUpdate(data:Data){
-                guard let acc = ConvertFromData(data: data) else{
-                        return
-                }
+        public static func InitWallet(wallet:Wallet){
+                _inst.wallet = wallet
         }
-        
         public static func InitCallBack()->Interface{
                 var callBack:Interface = Interface()
                 callBack.logFunc = { bytChar in
@@ -69,21 +65,24 @@ class ServiceCallBack:NSObject{
                         NSLog("-------> online success")
                 }
                 
-                callBack.accountUpdate = {jsonData in
-                        guard let data = jsonData else{
+                callBack.accountUpdate = {charData in
+                        
+                        guard let data = charData else{
                                 //TODO::
                                 return
                         }
-//                        let data3 = Data(bytes: data,count: strlen(data))
-//                        guard let data2 = String(cString: data).data(using: .utf8) else{
-//                                //TODO::
-//                                return
-//                        }
-                        ServiceCallBack._inst.metaUpdate(data: Data(bytes: data,count: strlen(data)))
                         
-                       
+                        let jsonStr = String(cString: data)
+                        guard let accountDetails = ConvertFromData(data: jsonStr) else{
+                                //TODO::
+                                return
+                        }
+                        ServiceCallBack._inst.accountString = jsonStr
+                        DispatchQueue.main.async {
+                                ServiceCallBack._inst.wallet.account = accountDetails
+                        }
                 }
+                
                 return callBack
         }
-        
 }

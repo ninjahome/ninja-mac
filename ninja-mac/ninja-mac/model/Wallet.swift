@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Wallet: ObservableObject {
         @Published var address: String = ""
-        var acc:AccountOnChain? = nil
-        
-        
+        @Published var account:AccountOnChain = AccountOnChain()
 }

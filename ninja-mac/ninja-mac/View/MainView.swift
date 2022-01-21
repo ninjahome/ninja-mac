@@ -9,7 +9,10 @@ import SwiftUI
 import CoreData
 
 struct MainView: View {
+        
         @State  var tabIdx = 0
+        @EnvironmentObject var wallet:Wallet
+        
         var body: some View {
                 HStack(alignment:.top) {
                         SideBar(tabIdx:$tabIdx)
@@ -30,6 +33,8 @@ struct MainView: View {
                 .background(Color(red: 0.969, green: 0.969, blue: 0.969))
                 .padding(.all, 0.0)
                 .onAppear{
+                        ServiceCallBack.InitWallet(wallet:wallet)
+                        LibWrap.AccountNonce(nonce: wallet.account.nonce)
                         let err = LibWrap.WSOnline()
                         if let e = err{
                                 print(e.localizedDescription)
@@ -37,7 +42,6 @@ struct MainView: View {
                 }
         }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
         static var previews: some View {

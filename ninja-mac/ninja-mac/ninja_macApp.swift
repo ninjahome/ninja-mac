@@ -34,8 +34,8 @@ struct ninja_macApp: App {
         var appDelegate
         
         let persistenceController = PersistenceController.shared
-        
         @AppStorage("cache_account_json") var walletJson: String = ""
+        
         @StateObject var wallet:Wallet = Wallet()
         var body: some Scene {
                 WindowGroup {
@@ -49,10 +49,9 @@ struct ninja_macApp: App {
                                 }
                         }
                         else{
-                                MainView().onAppear{
-                                        LibWrap.AccountNonce(nonce: wallet.acc?.nonce ?? 0)
-                                } .environmentObject(wallet)
-                                        .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                                MainView()
+                                .environmentObject(wallet)
+                                .environment(\.managedObjectContext, persistenceController.container.viewContext)
                         }
                 }
                 .windowStyle(HiddenTitleBarWindowStyle())

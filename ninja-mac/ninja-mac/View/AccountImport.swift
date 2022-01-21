@@ -80,6 +80,23 @@ struct AccountImport: View {
                                               dismissButton: .default(Text("OK")))
                                         
                                 }
+                        
+                        Button(action: {
+                                self.showAuth = true
+                        }, label:{
+                                Text("Create Account")
+                                        .font(.title3)
+                                        .foregroundColor(Color(red: 0.339, green: 0.422, blue: 0.586))
+                                        .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
+                        }).buttonStyle(.borderless)
+                                .background(.clear)
+                                .cornerRadius(5)
+                                .sheet(isPresented: $showAuth) {
+                                        PasswordView(isVisible: $showAuth,
+                                                     callback: self.createNewAccount,
+                                                     doubleCheck: true)
+                                }
+                        
                         Spacer()
                         
                 }
@@ -87,7 +104,9 @@ struct AccountImport: View {
                 .frame(width: 320, height: 480)
                 .background(.white)
                 .sheet(isPresented: $showAuth) {
-                        PasswordView(isVisible: $showAuth, callback: self.unlockTheInputWalletJson)
+                        PasswordView(isVisible: $showAuth,
+                                     callback: self.unlockTheInputWalletJson,
+                        doubleCheck: false)
                 }
         }
         private func loadWalletQRFile(){
@@ -125,6 +144,18 @@ struct AccountImport: View {
                         return nil
                 }
                 return err
+        }
+        
+        private func createNewAccount(auth:String)->Error?{
+                
+                let (wStr, err) = LibWrap.NewWallet(auth: auth)
+                if let e = err{
+                        return e
+                }
+                
+                wJson = wStr
+                wallet.address = LibWrap.WalletAddr() ?? ""
+                return nil
         }
 }
 

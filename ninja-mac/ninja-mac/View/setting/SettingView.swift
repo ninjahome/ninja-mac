@@ -81,7 +81,11 @@ struct SettingView: View {
                                                            txtContent: wallet.address)
                                         }
                                         Button() {
-                                                print("Copy")
+                                                let pasteBoard = NSPasteboard.general
+                                                pasteBoard.clearContents()
+                                                pasteBoard.setString(wallet.address, forType: .string)
+                                                print("copy:", wallet.address)
+                                                
                                         }label: {
                                                 Image(systemName: "doc.on.doc")
                                         }.buttonStyle(.plain)

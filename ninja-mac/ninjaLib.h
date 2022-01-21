@@ -19,11 +19,13 @@ typedef struct { const char *p; ptrdiff_t n; } _GoString_;
 /* Start of preamble from import "C" comments.  */
 
 
+
 #line 3 "iface.go"
 
 #include "callback.h"
 
 #line 1 "cgo-generated-wrapper"
+
 
 
 /* End of preamble from import "C" comments.  */
@@ -73,11 +75,12 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
+extern char* groupImage(char* b, GoInt sz);
 extern char* initConf(GoString endPoint, GoString infuraToken, GoInt8 networkID, Interface callback);
 extern void setPushParam(GoString devToken, GoInt devType, GoUint8 debug);
-extern char* activeWallet(GoString auth, GoString cipherTxt);
-extern char* groupImage(char* b, GoInt sz);
 extern char* walletAddress();
+extern char* activeWallet(GoString auth, GoString cipherTxt);
+extern char* newWallet(GoString auth);
 
 #ifdef __cplusplus
 }

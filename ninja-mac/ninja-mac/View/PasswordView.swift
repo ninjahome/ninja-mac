@@ -12,6 +12,9 @@ struct PasswordView: View {
         @State var password: String = ""
         @State var errorTips: String?
         var callback:AuthCallBack?
+        var doubleCheck:Bool
+        @State var secondPassword:String=""
+        
         var body: some View {
                 
                 VStack {
@@ -35,6 +38,18 @@ struct PasswordView: View {
                                 .buttonStyle(.plain)
                                 .padding(.all, 2)
                                 .cornerRadius(6)
+                        if self.doubleCheck{
+                                SecureField(
+                                        "password again",
+                                        text: $secondPassword,
+                                        onCommit: {
+                                                print("onCommit:", self.secondPassword)
+                                        })
+                                        .font(.title2)
+                                        .buttonStyle(.plain)
+                                        .padding(.all, 2)
+                                        .cornerRadius(6)
+                        }
                         
                         Spacer()
                         HStack {
@@ -47,6 +62,12 @@ struct PasswordView: View {
                                         guard let cb = callback else{
                                                 self.isVisible = false
                                                 return 
+                                        }
+                                        if doubleCheck{
+                                                if password != secondPassword{
+                                                        self.errorTips = "passwords not same"
+                                                        return
+                                                }
                                         }
                                         guard let err = cb(password) else{
                                                 self.isVisible = false
@@ -66,9 +87,16 @@ struct PasswordView: View {
 
 struct PassWordView_Previews: PreviewProvider {
         static var previews: some View {
-                PasswordView(isVisible: .constant(true), callback: {
-                        pass in
-                        return NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey : "Any test"])
-                })
+                Group {
+                        PasswordView(isVisible: .constant(true), callback: {
+                                pass in
+                                return NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey : "Any test"])
+                        }, doubleCheck: (true))
+                        
+                        PasswordView(isVisible: .constant(true), callback: {
+                                pass in
+                                return NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey : "Any test"])
+                        }, doubleCheck: (false))
+                }
         }
 }

@@ -63,7 +63,9 @@ struct LoginView: View {
                 .frame(width: 280, height: 372)
                 .background(Color(red: 0.969, green: 0.969, blue: 0.969))
                 .sheet(isPresented: $showAuth) {
-                        PasswordView(isVisible: $showAuth, callback: self.unlockTheInputWalletJson)
+                        PasswordView(isVisible: $showAuth,
+                                     callback: self.unlockTheInputWalletJson,
+                                     doubleCheck: false)
                 }
         }
         

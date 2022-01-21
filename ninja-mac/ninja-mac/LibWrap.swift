@@ -24,4 +24,11 @@ final class LibWrap:NSObject{
                 
                 return String(cString: errMsg)
         }
+        static func NewWallet(auth:String)->(String,Error?){
+                guard let wData = newWallet(auth.toGoStr()) else{
+                        return ("",NSError(domain: "Account", code: -1, userInfo: [NSLocalizedDescriptionKey:"create wallet failed"]))
+                }
+                return (String(cString:wData), nil)
+        }
 }
+

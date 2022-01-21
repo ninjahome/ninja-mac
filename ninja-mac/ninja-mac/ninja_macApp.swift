@@ -12,12 +12,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         @AppStorage("save_last_usable_service_ip") var endPoint: String = ""
         let InfuraToken:String = "a3a5c09826a246d0bfbef8084b81df1f"
         let DebugMode:Bool = true
+        let NetworkID:Int8 = 5
         
         func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
                 return true
         }
         func applicationDidFinishLaunching(_ notification: Notification) {
-                initConf(endPoint.toGoStr(), InfuraToken.toGoStr(),5, ServiceCallBack.CallBack())
+               let cb =  ServiceCallBack.InitCallBack()
+                initConf(endPoint.toGoStr(),
+                         InfuraToken.toGoStr(),
+                         NetworkID,
+                         cb)
+                
                 setPushParam("".toGoStr(), 3, DebugMode ? 1: 0)
         }
 }

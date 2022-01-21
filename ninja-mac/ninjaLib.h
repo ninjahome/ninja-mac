@@ -76,8 +76,17 @@ extern "C" {
 #endif
 
 extern char* groupImage(char* b, GoInt sz);
-extern char* initConf(GoString endPoint, GoString infuraToken, GoInt8 networkID, Interface callback);
+extern void addImg(GoSlice img);
+
+/* Return type for commitImg */
+struct commitImg_return {
+	GoSlice r0;
+	GoInterface r1;
+};
+extern struct commitImg_return commitImg();
+extern void initConf(GoString endPoint, GoString infuraToken, GoInt8 networkID, Interface callback);
 extern void setPushParam(GoString devToken, GoInt devType, GoUint8 debug);
+extern char* online();
 extern char* walletAddress();
 extern char* activeWallet(GoString auth, GoString cipherTxt);
 extern char* newWallet(GoString auth);

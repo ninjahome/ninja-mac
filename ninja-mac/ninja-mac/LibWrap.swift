@@ -9,12 +9,14 @@ import Foundation
 import ninjaLib
 
 final class LibWrap:NSObject{
+        static let ErrDomainWallet:String = "wallet"
+        static let ErrDomainSocket:String = "websocket"
         
         static func ActiveWallet(auth:String, Cpher:String)->Error?{
                 guard let errMsg = activeWallet(auth.toGoStr(), Cpher.toGoStr()) else{
                         return nil
                 }
-                return NSError(domain: "Account", code: -1, userInfo: [NSLocalizedDescriptionKey:String(cString: errMsg)])
+                return NSError(domain: ErrDomainWallet, code: -1, userInfo: [NSLocalizedDescriptionKey:String(cString: errMsg)])
         }
         
         static func WalletAddr()->String?{
@@ -26,9 +28,16 @@ final class LibWrap:NSObject{
         }
         static func NewWallet(auth:String)->(String,Error?){
                 guard let wData = newWallet(auth.toGoStr()) else{
-                        return ("",NSError(domain: "Account", code: -1, userInfo: [NSLocalizedDescriptionKey:"create wallet failed"]))
+                        return ("",NSError(domain: ErrDomainWallet, code: -3, userInfo: [NSLocalizedDescriptionKey:"create wallet failed"]))
                 }
                 return (String(cString:wData), nil)
+        }
+        
+        static func WSOnline()->NSError?{
+                guard let errMsg = online() else{
+                        return nil
+                }
+                return NSError(domain: ErrDomainSocket, code: -2, userInfo: [NSLocalizedDescriptionKey:String(cString: errMsg)])
         }
 }
 

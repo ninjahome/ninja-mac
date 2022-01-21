@@ -7,15 +7,16 @@
 
 import Foundation
 import ninjaLib
+import SwiftUI
 
 class ServiceCallBack:NSObject{
+        @AppStorage("save_last_usable_service_ip") static var endPoint: String = ""
         
         private static let _inst = ServiceCallBack()
-        private static var callBack:Interface = Interface()
+        private var callBack:Interface = Interface()
         
         private override init() {
                 super.init()
-                self.InitCallBack()
         }
         
         public static func Inst()->ServiceCallBack{
@@ -27,9 +28,9 @@ class ServiceCallBack:NSObject{
                 print("call data json:", log)
         }
         
-        func InitCallBack(){
-                
-                ServiceCallBack.callBack.logFunc = { bytChar in
+       public static func InitCallBack()->Interface{
+                var callBack:Interface = Interface()
+                callBack.logFunc = { bytChar in
                         guard let data = bytChar else{
                                 return
                         }
@@ -38,14 +39,21 @@ class ServiceCallBack:NSObject{
                         ServiceCallBack._inst.libLog(call_data)
                 }
                 
-                ServiceCallBack.callBack.peerMsg = {
+                callBack.peerMsg = {
                         (from, decoded, _, time) in
                         return 1
                 }
-        }
-        
-        public static func CallBack()->Interface{
-                return ServiceCallBack.callBack
+                
+                callBack.nodeChanged = { bytChar in
+                        guard let data = bytChar else{
+                                return
+                        }
+                        
+                        let newIP = String(cString: data)
+                        ServiceCallBack.endPoint = newIP
+                        _ = LibWrap.WSOnline()
+                }
+                return callBack
         }
        
 }

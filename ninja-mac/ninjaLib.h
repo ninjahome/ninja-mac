@@ -20,6 +20,7 @@ typedef struct { const char *p; ptrdiff_t n; } _GoString_;
 
 
 
+
 #line 3 "iface.go"
 
 #include "callback.h"
@@ -75,15 +76,10 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
+extern void accountNonce(GoInt64 nonce);
 extern char* groupImage(char* b, GoInt sz);
 extern void addImg(GoSlice img);
-
-/* Return type for commitImg */
-struct commitImg_return {
-	GoSlice r0;
-	GoInterface r1;
-};
-extern struct commitImg_return commitImg();
+extern char* commitImg();
 extern void initConf(GoString endPoint, GoString infuraToken, GoInt8 networkID, Interface callback);
 extern void setPushParam(GoString devToken, GoInt devType, GoUint8 debug);
 extern char* online();

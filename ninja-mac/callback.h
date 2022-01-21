@@ -10,11 +10,13 @@
         FuncOneStr logFunc;
         FuncOneStr nodeChanged;
         FuncVoid didOnline;
+        FuncOneStr accountUpdate;
     }Interface;
 
 
     void ExecuteOnline(Interface cb);
     void ExecuteLog(Interface cb, char*v);
+    void ExecuteAccUpdate(Interface cb, char*v);
     void ExecuteNodeIPChanged(Interface cb, char*v);
     int ExecutePeerIM(Interface cb, char* from, char* decoded, char* payload, long timeInMilSec);
 

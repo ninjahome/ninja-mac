@@ -35,6 +35,7 @@
 		69BDD39627917E8D00EF76DE /* MessageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BDD39527917E8D00EF76DE /* MessageHeader.swift */; };
 		69BDD39827917E9F00EF76DE /* MessageBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BDD39727917E9F00EF76DE /* MessageBody.swift */; };
 		69C65D8C279A33E900EEB9A5 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C65D8B279A33E900EEB9A5 /* QRCodeView.swift */; };
+		69FBC6B3279A8DAA00929C76 /* AccountOnChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FBC6B2279A8DAA00929C76 /* AccountOnChain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		69BDD39527917E8D00EF76DE /* MessageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageHeader.swift; sourceTree = "<group>"; };
 		69BDD39727917E9F00EF76DE /* MessageBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBody.swift; sourceTree = "<group>"; };
 		69C65D8B279A33E900EEB9A5 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		69FBC6B2279A8DAA00929C76 /* AccountOnChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOnChain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				69BDD3902790297C00EF76DE /* ChatItem.swift */,
 				69BDD39327902D6900EF76DE /* ModelData.swift */,
 				698D25F427981A9A00D9A6F1 /* Wallet.swift */,
+				69FBC6B2279A8DAA00929C76 /* AccountOnChain.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				69BC667C278D8F2200EB2E2C /* SideBar.swift in Sources */,
 				698CE97F278BFEBB009D8074 /* utils.swift in Sources */,
+				69FBC6B3279A8DAA00929C76 /* AccountOnChain.swift in Sources */,
 				6990D05D27964BE800128CF3 /* MessageInput.swift in Sources */,
 				698CE972278BFA32009D8074 /* Persistence.swift in Sources */,
 				69BDD39827917E9F00EF76DE /* MessageBody.swift in Sources */,

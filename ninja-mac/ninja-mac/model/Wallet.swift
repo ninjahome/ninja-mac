@@ -9,5 +9,7 @@ import Foundation
 
 class Wallet: ObservableObject {
         @Published var address: String = ""
-}
+        var acc:AccountOnChain? = nil
         
+        
+}

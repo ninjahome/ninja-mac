@@ -130,13 +130,19 @@ struct SettingView: View {
                         Divider()
                         
                         HStack{
+                                Spacer()
                                 Button("Destroy Account") {
                                         print("import account:")
+                                }
+                                Spacer()
+                                Button("Fresh Account") {
+                                        print("fresh account:")
                                 }
                                 Spacer()
                                 Button("New Account") {
                                         print("import account:")
                                 }
+                                Spacer()
                         }
                         Spacer()
                 }.padding(EdgeInsets(top: 5, leading: 50, bottom: 5, trailing: 50))

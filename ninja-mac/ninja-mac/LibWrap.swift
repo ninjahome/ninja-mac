@@ -39,5 +39,10 @@ final class LibWrap:NSObject{
                 }
                 return NSError(domain: ErrDomainSocket, code: -2, userInfo: [NSLocalizedDescriptionKey:String(cString: errMsg)])
         }
+
+        static func AccountNonce(nonce:Int64){
+                accountNonce(nonce)
+        }
+        
 }
 

@@ -18,7 +18,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 return true
         }
         func applicationDidFinishLaunching(_ notification: Notification) {
-               let cb =  ServiceCallBack.InitCallBack()
+                let cb =  ServiceCallBack.InitCallBack()
                 initConf(endPoint.toGoStr(),
                          InfuraToken.toGoStr(),
                          NetworkID,
@@ -49,8 +49,9 @@ struct ninja_macApp: App {
                                 }
                         }
                         else{
-                                MainView()
-                                        .environmentObject(wallet)
+                                MainView().onAppear{
+                                        LibWrap.AccountNonce(nonce: wallet.acc?.nonce ?? 0)
+                                } .environmentObject(wallet)
                                         .environment(\.managedObjectContext, persistenceController.container.viewContext)
                         }
                 }

@@ -29,6 +29,12 @@ struct MainView: View {
                 .frame(minWidth: 800, idealWidth: 960, minHeight: 720, idealHeight: 800)
                 .background(Color(red: 0.969, green: 0.969, blue: 0.969))
                 .padding(.all, 0.0)
+                .onAppear{
+                        let err = LibWrap.WSOnline()
+                        if let e = err{
+                                print(e.localizedDescription)
+                        }
+                }
         }
 }
 

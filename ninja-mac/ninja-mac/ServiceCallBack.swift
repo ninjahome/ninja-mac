@@ -28,7 +28,7 @@ class ServiceCallBack:NSObject{
                 print("call data json:", log)
         }
         
-       public static func InitCallBack()->Interface{
+        public static func InitCallBack()->Interface{
                 var callBack:Interface = Interface()
                 callBack.logFunc = { bytChar in
                         guard let data = bytChar else{
@@ -53,7 +53,11 @@ class ServiceCallBack:NSObject{
                         ServiceCallBack.endPoint = newIP
                         _ = LibWrap.WSOnline()
                 }
+                
+                callBack.didOnline = {
+                        NSLog("-------> online success")
+                }
                 return callBack
         }
-       
+        
 }

@@ -6,17 +6,14 @@
 //
 import Foundation
 import SwiftUI
-import CoreImage.CIFilterBuiltins
 
 struct QRCodeView: View {
         @Binding var isVisible: Bool
-        let context = CIContext()
-        let filter = CIFilter.qrCodeGenerator()
         var txtContent : String
         
         var body: some View {
                 VStack{
-                genrateQRImage(_url: txtContent)
+                genrateQRImage(data: Data(txtContent.utf8))
                         .interpolation(.none)
                         .resizable()
                         .frame(width: 200, height: 200, alignment: .center)
@@ -26,22 +23,7 @@ struct QRCodeView: View {
                 }.padding()
         }
         
-        func genrateQRImage(_url:String) -> Image {
-                
-                let data = Data(txtContent.utf8)
-                
-                filter.setValue(data, forKey: "inputMessage")
-                
-                if let qrCodeImage = filter.outputImage {
-                        
-                        if let qrCodeCGImage = context.createCGImage(qrCodeImage, from: qrCodeImage.extent){
-                                let nsImg = NSImage(cgImage: qrCodeCGImage, size: NSSize(width: 400,height: 400))
-                                return    Image(nsImage: nsImg)
-                        }
-                }
-                
-                return Image(systemName: "xmark")
-        }
+        
 }
 
 struct QRCodeView_Previews: PreviewProvider {

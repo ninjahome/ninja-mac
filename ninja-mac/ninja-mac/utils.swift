@@ -8,6 +8,8 @@
 import Foundation
 import ninjaLib
 import AppKit
+import CoreImage.CIFilterBuiltins
+import SwiftUI
 
 extension String {
         var localized: String {
@@ -50,4 +52,21 @@ func pickFile()->URL?{
         
         return nil
         
+}
+public func genrateQRImage(data:Data) -> Image {
+        
+        let context = CIContext()
+        let filter = CIFilter.qrCodeGenerator()
+        
+        filter.setValue(data, forKey: "inputMessage")
+        
+        if let qrCodeImage = filter.outputImage {
+                
+                if let qrCodeCGImage = context.createCGImage(qrCodeImage, from: qrCodeImage.extent){
+                        let nsImg = NSImage(cgImage: qrCodeCGImage, size: NSSize(width: 400,height: 400))
+                        return    Image(nsImage: nsImg)
+                }
+        }
+        
+        return Image(systemName: "xmark")
 }

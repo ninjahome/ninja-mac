@@ -24,10 +24,19 @@ struct AccountImport: View {
                                         .font(.subheadline)
                                         .foregroundColor(.gray)
                                 Button{
+                                        loadWalletQRFile()
+                                }label: {
+                                        Text("QR File")
+                                        Image(systemName: "qrcode.viewfinder")
+                                }
+                                
+                                Button{
                                         loadWalletJsonFromFile()
                                 }label: {
+                                        Text("Json File")
                                         Image(systemName: "folder")
                                 }
+                                
                         }.padding()
                         TextEditor(text: $inputWalletStr)
                                 .padding(EdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
@@ -81,9 +90,21 @@ struct AccountImport: View {
                         PasswordView(isVisible: $showAuth, callback: self.unlockTheInputWalletJson)
                 }
         }
-        
+        private func loadWalletQRFile(){
+                guard let url = pickFile(types: [.png, .jpeg]) else{
+                        return
+                }
+                
+                guard let img = CIImage(contentsOf: url) else{
+                        return
+                }
+                if  let str = parseQR(image: img){
+                        self.inputWalletStr = str
+                        return
+                }
+        }
         private func loadWalletJsonFromFile(){
-                guard let url = pickFile() else{
+                guard let url = pickFile(types: [.json,.text]) else{
                         return
                 }
                 do{

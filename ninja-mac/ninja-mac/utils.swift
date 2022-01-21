@@ -10,6 +10,7 @@ import ninjaLib
 import AppKit
 import CoreImage.CIFilterBuiltins
 import SwiftUI
+import UniformTypeIdentifiers
 
 extension String {
         var localized: String {
@@ -35,17 +36,17 @@ public let itemFormatter: DateFormatter = {
         return formatter
 }()
 
-func pickFile()->URL?{
+func pickFile(types:[UTType])->URL?{
         
         let dialog = NSOpenPanel();
-
+        
         dialog.title                   = "Choose a file";
         dialog.showsResizeIndicator    = true;
         dialog.showsHiddenFiles        = false;
         dialog.allowsMultipleSelection = false;
         dialog.canChooseDirectories = false;
-        dialog.allowedContentTypes        = [.json,.text];
-
+        dialog.allowedContentTypes        = types
+        
         if (dialog.runModal() ==  NSApplication.ModalResponse.OK) {
                 return dialog.url
         }
@@ -69,4 +70,16 @@ public func genrateQRImage(data:Data) -> Image {
         }
         
         return Image(systemName: "xmark")
+}
+
+func parseQR(image:CIImage) -> String?{
+        let detector = CIDetector(ofType: CIDetectorTypeQRCode,
+                                  context: nil,
+                                  options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
+        
+        let features = detector?.features(in: image) ?? []
+        
+        return features.compactMap { feature in
+                return (feature as? CIQRCodeFeature)?.messageString
+        }[0]
 }

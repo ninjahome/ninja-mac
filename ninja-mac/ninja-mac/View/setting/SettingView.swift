@@ -11,18 +11,26 @@ struct SettingView: View {
         @EnvironmentObject var wallet:Wallet
         @State var nickName:String = ""
         @State var isShowQR:Bool = false
+        @State var isHidden:Bool = false
         @State var balanceTx:String = ""
+        
+        
         var body: some View {
                 VStack{
                         VStack{
                                 Image("test").resizable()
                                         .frame(width: 120, height: 120)
                                         .clipShape(Circle())
-                                Button() {
-                                        print("edit nickname")
-                                }label: {
-                                        Label("Edit", systemImage: "square.and.pencil")
-                                }.buttonStyle(.plain)
+                                HStack{
+                                        Button() {
+                                                print("edit nickname")
+                                        }label: {
+                                                Label("Edit", systemImage: "square.and.pencil")
+                                        }.buttonStyle(.plain)
+                                        if !wallet.isVip(){
+                                                Image("VIP")
+                                        }
+                                }
                         }.padding(.all, 10)
                         
                         Divider()
@@ -31,14 +39,17 @@ struct SettingView: View {
                                 HStack{
                                         Text("NickName:")
                                         Spacer()
-                                        TextField("tailor swift", text: $nickName)
+                                        TextField("taylor swift", text: $nickName)
                                         Button() {
                                                 print("save nickname")
                                         }label: {
                                                 Label("Save", systemImage: "square.and.arrow.down")
                                         }
+                                        if !wallet.isVip(){
+                                                Image("VIP")
+                                        }
                                         
-                                }.padding()
+                                }.padding().disabled(!wallet.isVip())
                                 
                                 HStack{
                                         Text("Balance:")
@@ -59,6 +70,9 @@ struct SettingView: View {
                                         }label: {
                                                 Label("Authorize", systemImage: "creditcard.and.123")
                                         }
+                                        if !wallet.isVip(){
+                                                Image("VIP")
+                                        }
                                 }.padding()
                                 
                         }.padding(.all, 10)
@@ -71,16 +85,21 @@ struct SettingView: View {
                                         Text("Address:")
                                         Spacer()
                                         Text(wallet.address)
+                                        
+                                }.padding()
+                                
+                                HStack{
+                                        
                                         Button() {
                                                 self.isShowQR = true
                                         }label: {
-                                                Image(systemName: "qrcode")
+                                                Label("Show QR", systemImage: "qrcode")
                                         }
-                                        .buttonStyle(.plain)
                                         .sheet(isPresented:$isShowQR){
                                                 QRCodeView(isVisible: $isShowQR,
                                                            txtContent: wallet.address)
                                         }
+                                        
                                         Button() {
                                                 let pasteBoard = NSPasteboard.general
                                                 pasteBoard.clearContents()
@@ -88,40 +107,19 @@ struct SettingView: View {
                                                 print("copy:", wallet.address)
                                                 
                                         }label: {
-                                                Image(systemName: "doc.on.doc")
+                                                Label("Copy Address", systemImage: "doc.on.doc")
                                         }
-                                        
                                 }.padding()
-                                
                                 HStack{
-                                        Text("Change Password:")
-                                        Spacer()
                                         Button() {
                                                 print("Change Password:")
                                         }label: {
-                                                Image(systemName: "lock.circle")
+                                                Label("Change Password", systemImage: "lock.circle")
                                         }
-                                        
-                                }.padding()
-                                
-                                HStack{
-                                        Text("Export Account:")
-                                        Spacer()
                                         Button() {
                                                 print("export account:")
                                         }label: {
-                                                Image(systemName: "tray.and.arrow.up")
-                                        }
-                                        
-                                }.padding()
-                                
-                                HStack{
-                                        Text("Import Account:")
-                                        Spacer()
-                                        Button() {
-                                                print("import account:")
-                                        }label: {
-                                                Image(systemName: "tray.and.arrow.down")
+                                                Label("Export Account", systemImage: "tray.and.arrow.up")
                                         }
                                         
                                 }.padding()
@@ -131,17 +129,22 @@ struct SettingView: View {
                         Divider()
                         
                         HStack{
-                                Spacer()
-                                Button("Destroy Account") {
+                                Button() {
                                         print("import account:")
+                                }label: {
+                                        Label("Import Account", systemImage: "tray.and.arrow.down")
                                 }
                                 Spacer()
-                                Button("Fresh Account") {
+                                Button() {
                                         print("fresh account:")
+                                }label: {
+                                        Label("Reload Account", systemImage: "clock")
                                 }
                                 Spacer()
-                                Button("New Account") {
+                                Button {
                                         print("import account:")
+                                }label: {
+                                        Label(("New Account"), systemImage: "person.crop.circle.badge.plus")
                                 }
                                 Spacer()
                         }

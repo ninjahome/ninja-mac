@@ -44,5 +44,14 @@ final class LibWrap:NSObject{
                 accountNonce(nonce)
         }
         
+        static func ConvertBalance(balance:Int64?) -> String{
+                let now = Date.now.timeIntervalSince1970
+                if let b = balance, TimeInterval(b) > now{
+                        let floatB = convertBalance(b)
+                        return String.init(format: "%.2f", floatB)
+                }
+                return "0.00"
+        }
+        
 }
 

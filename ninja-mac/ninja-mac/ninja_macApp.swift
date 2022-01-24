@@ -13,18 +13,20 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let InfuraToken:String = "a3a5c09826a246d0bfbef8084b81df1f"
         let DebugMode:Bool = true
         let NetworkID:Int8 = 5
+        let DeviceType_Mac = 3
         
         func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
                 return true
         }
+        
         func applicationDidFinishLaunching(_ notification: Notification) {
                 let cb =  ServiceCallBack.InitCallBack()
-                initConf(endPoint.toGoStr(),
+                initAPP(endPoint.toGoStr(),
                          InfuraToken.toGoStr(),
                          NetworkID,
                          cb)
                 
-                setPushParam("".toGoStr(), 3, DebugMode ? 1: 0)
+                setPushParam("".toGoStr(), GoInt(DeviceType_Mac), DebugMode ? 1: 0)
         }
 }
 

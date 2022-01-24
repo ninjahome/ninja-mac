@@ -11,6 +11,7 @@ struct SettingView: View {
         @EnvironmentObject var wallet:Wallet
         @State var nickName:String = ""
         @State var isShowQR:Bool = false
+        @State var balanceTx:String = ""
         var body: some View {
                 VStack{
                         VStack{
@@ -35,19 +36,19 @@ struct SettingView: View {
                                                 print("save nickname")
                                         }label: {
                                                 Label("Save", systemImage: "square.and.arrow.down")
-                                        }.buttonStyle(.plain)
+                                        }
                                         
                                 }.padding()
                                 
                                 HStack{
                                         Text("Balance:")
                                         Spacer()
-                                        Text("60.7NCT")
+                                        Text(balanceTx+"NCT")
                                         Button() {
                                                 print("save nickname")
                                         }label: {
-                                                Label("Recharge", systemImage: "wallet.pass")
-                                        }.buttonStyle(.plain)
+                                                Label("Recharge", systemImage: "bitcoinsign.circle")
+                                        }
                                 }.padding()
                                 
                                 HStack{
@@ -57,7 +58,7 @@ struct SettingView: View {
                                                 print("Author friend")
                                         }label: {
                                                 Label("Authorize", systemImage: "creditcard.and.123")
-                                        }.buttonStyle(.plain)
+                                        }
                                 }.padding()
                                 
                         }.padding(.all, 10)
@@ -88,7 +89,7 @@ struct SettingView: View {
                                                 
                                         }label: {
                                                 Image(systemName: "doc.on.doc")
-                                        }.buttonStyle(.plain)
+                                        }
                                         
                                 }.padding()
                                 
@@ -99,7 +100,7 @@ struct SettingView: View {
                                                 print("Change Password:")
                                         }label: {
                                                 Image(systemName: "lock.circle")
-                                        }.buttonStyle(.plain)
+                                        }
                                         
                                 }.padding()
                                 
@@ -110,7 +111,7 @@ struct SettingView: View {
                                                 print("export account:")
                                         }label: {
                                                 Image(systemName: "tray.and.arrow.up")
-                                        }.buttonStyle(.plain)
+                                        }
                                         
                                 }.padding()
                                 
@@ -121,7 +122,7 @@ struct SettingView: View {
                                                 print("import account:")
                                         }label: {
                                                 Image(systemName: "tray.and.arrow.down")
-                                        }.buttonStyle(.plain)
+                                        }
                                         
                                 }.padding()
                                 
@@ -145,7 +146,14 @@ struct SettingView: View {
                                 Spacer()
                         }
                         Spacer()
-                }.padding(EdgeInsets(top: 5, leading: 50, bottom: 5, trailing: 50))
+                }       .padding(EdgeInsets(top: 5, leading: 50, bottom: 5, trailing: 50))
+                        .onAppear {
+                                initViewStatus()
+                        }.buttonStyle(.bordered)
+        }
+        
+        private func initViewStatus(){
+                balanceTx = LibWrap.ConvertBalance(balance: wallet.account.balance)
         }
 }
 

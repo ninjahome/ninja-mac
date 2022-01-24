@@ -9,23 +9,12 @@ import Foundation
 import ninjaLib
 import SwiftUI
 
-class ServiceCallBack:NSObject{
+struct ServiceCallBack{
         @AppStorage("save_last_usable_service_ip") var endPoint: String = ""
-        @ObservedObject var wallet:Wallet = Wallet()
-        @AppStorage("cache_account_json_string") var accountString: String = ""
-        @Environment(\.managedObjectContext) private var viewContext
         
         
-        private static let _inst = ServiceCallBack()
+        public static let shared = ServiceCallBack()
         private var callBack:Interface = Interface()
-        
-        private override init() {
-                super.init()
-        }
-        
-        public static func Inst()->ServiceCallBack{
-                return ._inst
-        }
         
         func libLog(_ log :String){
                 print("call data json:", log)
@@ -35,9 +24,7 @@ class ServiceCallBack:NSObject{
                 self.endPoint = newIP
                 _ = LibWrap.WSOnline()
         }
-        public static func InitWallet(wallet:Wallet){
-                _inst.wallet = wallet
-        }
+        
         public static func InitCallBack()->Interface{
                 var callBack:Interface = Interface()
                 callBack.logFunc = { bytChar in
@@ -46,12 +33,25 @@ class ServiceCallBack:NSObject{
                         }
                         
                         let call_data = String( cString: data)
-                        ServiceCallBack._inst.libLog(call_data)
+                        ServiceCallBack.shared.libLog(call_data)
                 }
                 
                 callBack.peerMsg = {
                         (from, decoded, time) in
+                        guard let sender = from, let d = decoded else{
+                                return 0
+                        }
+                        
+                        guard let data = String(cString: d).data(using: .utf8) else{
+                                return 0
+                        }
+                        
+                        LatestChatManager.shared.Update(from: String(cString: sender),
+                                                        msgTyp: MsgType(rawValue: data[0]) ?? .Txt,
+                                                        timpStamp: Int64(time),
+                                                        isGrp: false)
                         return 1
+                        
                 }
                 
                 callBack.nodeChanged = { bytChar in
@@ -60,7 +60,7 @@ class ServiceCallBack:NSObject{
                         }
                         
                         let newIP = String(cString: data)
-                        ServiceCallBack._inst.changeNodeIP(newIP: newIP)
+                        ServiceCallBack.shared.changeNodeIP(newIP: newIP)
                 }
                 
                 callBack.didOnline = {
@@ -74,15 +74,7 @@ class ServiceCallBack:NSObject{
                                 return
                         }
                         
-                        let jsonStr = String(cString: data)
-                        guard let accountDetails = ConvertFromData(data: jsonStr) else{
-                                //TODO::
-                                return
-                        }
-                        ServiceCallBack._inst.accountString = jsonStr
-                        DispatchQueue.main.async {
-                                ServiceCallBack._inst.wallet.account = accountDetails
-                        }
+                        AccountOnChain.UpdateSelfMeata(jsonData:String(cString: data))
                 }
                 
                 return callBack

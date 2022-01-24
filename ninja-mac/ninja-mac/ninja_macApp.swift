@@ -38,7 +38,7 @@ struct ninja_macApp: App {
         let persistenceController = PersistenceController.shared
         @AppStorage("cache_account_json") var walletJson: String = ""
         
-        @StateObject var wallet:Wallet = Wallet()
+        @StateObject var wallet:Wallet = Wallet.shared
         var body: some Scene {
                 WindowGroup {
                         if wallet.address == ""{

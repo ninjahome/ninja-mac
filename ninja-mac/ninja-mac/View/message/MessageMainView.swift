@@ -13,15 +13,13 @@ struct MessageMainView: View {
         
         @Environment(\.managedObjectContext) private var viewContext
         @FetchRequest(
-                sortDescriptors: [NSSortDescriptor(keyPath: \MsgLatest.timestamp, ascending: true)],
+                sortDescriptors: [NSSortDescriptor(keyPath: \CDMsgLatest.timestamp, ascending: true)],
                 animation: .default)
-        private var items: FetchedResults<MsgLatest>
+        private var items: FetchedResults<CDMsgLatest>
         
-        @State var selected: MsgLatest? = nil
+        @State var selected: CDMsgLatest? = nil
         @State private var selectedIdx: Int = 0
         @State var indexPathToSetVisible: IndexPath?
-        
-        
         
         var body: some View {
                 
@@ -32,7 +30,7 @@ struct MessageMainView: View {
                                 List(selection: $selected){
                                         ForEach(items, id: \.self){
                                                 item in
-                                                MessageItemView()
+                                                LatestMsgView(lastMsg: $selected)
                                         }
                                 }.background(.red)
                                 //                .toolbar{
@@ -76,7 +74,7 @@ struct MessageMainView: View {
         
         private func addItem() {
                 withAnimation {
-                        let newItem = MsgItem(context: viewContext)
+                        let newItem = CDMsgItem(context: viewContext)
                         newItem.timestamp = Date()
                         
                         do {

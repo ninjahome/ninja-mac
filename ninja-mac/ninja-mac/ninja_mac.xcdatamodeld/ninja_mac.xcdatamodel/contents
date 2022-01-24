@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21C52" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Contact" representedClassName="Contact" syncable="YES" codeGenerationType="class"/>
-    <entity name="MsgItem" representedClassName="MsgItem" syncable="YES" codeGenerationType="class">
+    <entity name="CDContact" representedClassName="CDContact" syncable="YES" codeGenerationType="class">
+        <attribute name="addr" optional="YES" attributeType="String"/>
+        <attribute name="avatar" optional="YES" attributeType="Binary"/>
+        <attribute name="balance" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="nonce" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="owner" optional="YES" attributeType="String"/>
+        <attribute name="touch_time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="CDMsgItem" representedClassName="CDMsgItem" syncable="YES" codeGenerationType="class">
         <attribute name="data" optional="YES" attributeType="Binary"/>
         <attribute name="dataDesc" optional="YES" attributeType="Binary"/>
         <attribute name="dataDesc2" optional="YES" attributeType="Binary"/>
@@ -14,17 +22,18 @@
         <attribute name="to" optional="YES" attributeType="String"/>
         <attribute name="typ" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="MsgLatest" representedClassName="MsgLatest" syncable="YES" codeGenerationType="class">
+    <entity name="CDMsgLatest" representedClassName="CDMsgLatest" syncable="YES" codeGenerationType="class">
         <attribute name="isGrp" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="lastMsg" optional="YES" attributeType="String"/>
+        <attribute name="owner" optional="YES" attributeType="String"/>
         <attribute name="peerAvatar" optional="YES" attributeType="Binary"/>
         <attribute name="peerID" optional="YES" attributeType="String"/>
         <attribute name="peerName" optional="YES" attributeType="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="MsgItem" positionX="-63" positionY="-18" width="128" height="194"/>
-        <element name="Contact" positionX="-63" positionY="0" width="128" height="29"/>
-        <element name="MsgLatest" positionX="-45" positionY="81" width="128" height="119"/>
+        <element name="CDMsgItem" positionX="-63" positionY="-18" width="128" height="194"/>
+        <element name="CDContact" positionX="-63" positionY="0" width="128" height="134"/>
+        <element name="CDMsgLatest" positionX="-45" positionY="81" width="128" height="134"/>
     </elements>
 </model>

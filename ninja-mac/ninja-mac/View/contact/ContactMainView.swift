@@ -23,13 +23,13 @@ struct CardInfo: Hashable, Identifiable {
 struct ContactMainView: View {
         
         @State private var searchText:String = ""
-        @State var selected: MsgItem?
+        @State var selected: CDMsgItem?
         
         @Environment(\.managedObjectContext) private var viewContext
         @FetchRequest(
-                sortDescriptors: [NSSortDescriptor(keyPath: \MsgItem.timestamp, ascending: true)],
+                sortDescriptors: [NSSortDescriptor(keyPath: \CDMsgItem.timestamp, ascending: true)],
                 animation: .default)
-        private var items: FetchedResults<MsgItem>
+        private var items: FetchedResults<CDMsgItem>
         
         @State private var savedGrpExpanded: Bool = false
         @State private var contactExpanded: Bool = false
@@ -43,7 +43,7 @@ struct ContactMainView: View {
                                 List(selection: $selected){
                                         DisclosureGroup(isExpanded: $savedGrpExpanded) {
                                                 ForEach(items, id: \.self) { item in
-                                                        MessageItemView()
+                                                        LatestMsgView(lastMsg: .constant(nil))
                                                 }
                                         }label:{
                                                 Image(systemName: "person.3")
@@ -51,7 +51,7 @@ struct ContactMainView: View {
                                         }
                                         DisclosureGroup(isExpanded: $contactExpanded) {
                                                 ForEach(items, id: \.self) { item in
-                                                        MessageItemView()
+                                                        LatestMsgView(lastMsg: .constant(nil))
                                                 }
                                         }label:{
                                                 Image(systemName: "person")
@@ -89,7 +89,7 @@ struct ContactMainView: View {
 }
 
 struct ContactView: View {
-        @Binding var selected: MsgItem?
+        @Binding var selected: CDMsgItem?
         @State var alias:String=""
         @State var remark:String="a beautifull singer"
         
@@ -160,7 +160,7 @@ struct ContactView: View {
 }
 
 struct Contact_Previews: PreviewProvider {
-        @State static var selected: MsgItem?
+        @State static var selected: CDMsgItem?
         static var previews: some View {
                 ContactMainView().frame(width: 880, height: 600, alignment: .center)
                 ContactView(selected: $selected)

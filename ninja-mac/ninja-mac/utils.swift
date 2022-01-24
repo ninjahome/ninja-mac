@@ -83,3 +83,24 @@ func parseQR(image:CIImage) -> String?{
                 return (feature as? CIQRCodeFeature)?.messageString
         }[0]
 }
+
+func toISODate(dateStr:String?)->Date?{
+        guard let str = dateStr else{
+                return nil
+        }
+        let utcISODateFormatter = ISO8601DateFormatter()
+        return utcISODateFormatter.date(from: str)
+}
+
+func toChatMsgTime(date:Date)->String{
+        
+        let calendar = Calendar.current
+        
+        let format = DateFormatter()
+        if calendar.isDateInToday(date){
+                format.dateFormat = "HH:mm:ss"
+                return format.string(from: date)
+        }
+        format.dateFormat = "MM-dd HH:mm"
+        return format.string(from: date)
+}

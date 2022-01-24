@@ -52,6 +52,5 @@ final class LibWrap:NSObject{
                 }
                 return "0.00"
         }
-        
 }
 

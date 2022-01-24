@@ -15,7 +15,7 @@ struct LoginView: View {
         @State var nickName:String = "NickName"
         @State var avatar:Image = Image("logo")
         
-        @AppStorage("cache_account_json_string") var accountString: String = ""
+        @AppStorage("cache_self_meta_json_string") var myMetaStr: String = ""
         
         var body: some View {
                 VStack{
@@ -71,7 +71,7 @@ struct LoginView: View {
                                      doubleCheck: false)
                 }.onAppear{
                         
-                        guard let accountDetails = ConvertFromData(data: accountString) else{
+                        guard let accountDetails = AccountOnChain.ConvertFromData(data: myMetaStr) else{
                                 //TODO::
                                 return
                         }

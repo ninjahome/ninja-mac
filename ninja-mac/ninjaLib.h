@@ -84,6 +84,7 @@ extern void initAPP(GoString endPoint, GoString infuraToken, GoInt8 networkID, I
 extern void setPushParam(GoString devToken, GoInt devType, GoUint8 debug);
 extern char* online();
 extern GoFloat32 convertBalance(GoInt b);
+extern char* accountDetail(GoString uid);
 extern char* walletAddress();
 extern char* activeWallet(GoString auth, GoString cipherTxt);
 extern char* newWallet(GoString auth);

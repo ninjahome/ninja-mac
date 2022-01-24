@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MessageHeader: View {
         
-        @Binding  var userName:MsgLatest?;
+        @Binding  var userName:CDMsgLatest?;
         
         var body: some View {
                 HStack(){
@@ -30,7 +30,7 @@ struct MessageHeader: View {
                 
         }
         
-        private func getTime(msg:MsgLatest?)-> String{
+        private func getTime(msg:CDMsgLatest?)-> String{
                 guard let date = msg?.timestamp else{
                         return "no title"
                 }
@@ -44,7 +44,7 @@ struct MessageHeader: View {
 }
 
 struct ChatHeader_Previews: PreviewProvider {
-        @State static var name:MsgLatest?
+        @State static var name:CDMsgLatest?
         static var previews: some View {
                 MessageHeader(userName: $name)
         }

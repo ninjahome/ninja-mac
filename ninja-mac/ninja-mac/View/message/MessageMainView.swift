@@ -13,11 +13,11 @@ struct MessageMainView: View {
         
         @Environment(\.managedObjectContext) private var viewContext
         @FetchRequest(
-                sortDescriptors: [NSSortDescriptor(keyPath: \MsgItem.timestamp, ascending: true)],
+                sortDescriptors: [NSSortDescriptor(keyPath: \MsgLatest.timestamp, ascending: true)],
                 animation: .default)
-        private var items: FetchedResults<MsgItem>
+        private var items: FetchedResults<MsgLatest>
         
-        @State var selected: MsgItem? = nil
+        @State var selected: MsgLatest? = nil
         @State private var selectedIdx: Int = 0
         @State var indexPathToSetVisible: IndexPath?
         

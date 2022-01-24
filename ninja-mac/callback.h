@@ -3,7 +3,7 @@
 
     typedef void (*FuncOneStr) (char*);
     typedef void (*FuncVoid) ();
-    typedef int (*PeerIM) (char* from, char* decoded, char* payload, long timeInMilSec);
+    typedef int (*PeerIM) (char* from, char* decoded, long timeInMilSec);
 
     typedef struct InterfaceClass{
         PeerIM peerMsg;
@@ -18,6 +18,6 @@
     void ExecuteLog(Interface cb, char*v);
     void ExecuteAccUpdate(Interface cb, char*v);
     void ExecuteNodeIPChanged(Interface cb, char*v);
-    int ExecutePeerIM(Interface cb, char* from, char* decoded, char* payload, long timeInMilSec);
+    int ExecutePeerIM(Interface cb, char* from, char* decoded, long timeInMilSec);
 
 #endif

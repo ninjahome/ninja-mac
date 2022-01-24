@@ -13,6 +13,8 @@ class ServiceCallBack:NSObject{
         @AppStorage("save_last_usable_service_ip") var endPoint: String = ""
         @ObservedObject var wallet:Wallet = Wallet()
         @AppStorage("cache_account_json_string") var accountString: String = ""
+        @Environment(\.managedObjectContext) private var viewContext
+        
         
         private static let _inst = ServiceCallBack()
         private var callBack:Interface = Interface()
@@ -48,7 +50,7 @@ class ServiceCallBack:NSObject{
                 }
                 
                 callBack.peerMsg = {
-                        (from, decoded, _, time) in
+                        (from, decoded, time) in
                         return 1
                 }
                 

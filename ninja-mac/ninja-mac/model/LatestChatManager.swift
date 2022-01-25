@@ -42,13 +42,7 @@ struct LatestChatManager{
                 newItem.peerID = from
                 newItem.owner = Wallet.shared.address
                 newItem.timestamp = Date.init(timeIntervalSince1970: TimeInterval(timpStamp))
-                guard let onlineData = AccountOnChain.GetAccountDetails(uid: from) else{
-                        newItem.peerAvatar = defaultAvatar
-                        newItem.peerName = from
-                        return newItem
-                }
-                newItem.peerAvatar = onlineData.avatar
-                newItem.peerName = onlineData.name
+               
                 return newItem
         }
         

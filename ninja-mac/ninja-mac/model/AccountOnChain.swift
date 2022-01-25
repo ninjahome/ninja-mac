@@ -22,6 +22,8 @@ struct AccountOnChain: Codable {
         var balance:Int64?
         var touch_time:String?
         
+        public static var Cache:[String:AccountOnChain] = [:]
+        
         init(){
                 nonce = 0
                 addr = ""
@@ -91,23 +93,7 @@ struct AccountOnChain: Codable {
                 accountString = jsonData
                 Wallet.shared.updateAccount(account: accountDetails)
         }
-        
-//        
-//        public static func NewContact(jsonData:String){
-//                guard let accountDetails = AccountOnChain.ConvertFromData(data: jsonData) else{
-//                        //TODO::
-//                        return
-//                }
-//                
-//                
-//                guard let cdData = Load(uid:accountDetails.addr) else{
-//                        let _ = Create(account: accountDetails)
-//                        return
-//                }
-//                
-//                accountDetails.ToCoreData(contact: cdData)
-//        }
-//        
+       
         public static func  Load(uid:String)->CDContact?{
                 let dbCtx = PersistenceController.shared.container.viewContext
                 let owner = Wallet.shared.address

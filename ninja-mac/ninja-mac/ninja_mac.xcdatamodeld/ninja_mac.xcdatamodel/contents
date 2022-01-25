@@ -26,14 +26,12 @@
         <attribute name="isGrp" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="lastMsg" optional="YES" attributeType="String"/>
         <attribute name="owner" optional="YES" attributeType="String"/>
-        <attribute name="peerAvatar" optional="YES" attributeType="Binary"/>
         <attribute name="peerID" optional="YES" attributeType="String"/>
-        <attribute name="peerName" optional="YES" attributeType="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="CDMsgItem" positionX="-63" positionY="-18" width="128" height="194"/>
         <element name="CDContact" positionX="-63" positionY="0" width="128" height="134"/>
-        <element name="CDMsgLatest" positionX="-45" positionY="81" width="128" height="134"/>
+        <element name="CDMsgItem" positionX="-63" positionY="-18" width="128" height="194"/>
+        <element name="CDMsgLatest" positionX="-45" positionY="81" width="128" height="104"/>
     </elements>
 </model>

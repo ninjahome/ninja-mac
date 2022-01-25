@@ -43,7 +43,7 @@ struct ContactMainView: View {
                                 List(selection: $selected){
                                         DisclosureGroup(isExpanded: $savedGrpExpanded) {
                                                 ForEach(items, id: \.self) { item in
-                                                        LatestMsgView(lastMsg: .constant(nil))
+                                                        LatestMsgView()
                                                 }
                                         }label:{
                                                 Image(systemName: "person.3")
@@ -51,7 +51,7 @@ struct ContactMainView: View {
                                         }
                                         DisclosureGroup(isExpanded: $contactExpanded) {
                                                 ForEach(items, id: \.self) { item in
-                                                        LatestMsgView(lastMsg: .constant(nil))
+                                                        LatestMsgView()
                                                 }
                                         }label:{
                                                 Image(systemName: "person")

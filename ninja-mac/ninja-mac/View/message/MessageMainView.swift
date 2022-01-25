@@ -36,7 +36,7 @@ struct MessageMainView: View {
                                 List(selection: $selected){
                                         ForEach(items, id: \.self){
                                                 item in
-//                                                LatestMsgView(lastMsg: $selected)
+                                                LatestMsgView(lastMsg:item)
                                         }
                                 }.background(.red)
                                 .listStyle(.plain)
@@ -66,13 +66,6 @@ struct MessageMainView: View {
                         if items.count > selectedIdx {
                                 selected = items[selectedIdx]
                         }
-                        
-//                        for item in items {
-//                                print(item.peerID)
-//                                print(item.owner)
-//                                print(item.peerName == nil)
-//                                print(item.timestamp)
-//                        }
                 }
         }
         

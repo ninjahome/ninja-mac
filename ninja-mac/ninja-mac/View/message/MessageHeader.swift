@@ -31,8 +31,14 @@ struct MessageHeader: View {
         }
         
         private func getPeerName(msg:CDMsgLatest?)-> String{
-                guard let name = msg?.peerName, name.count > 0 else{
-                        return msg?.peerID ?? ""
+                guard let uid = msg?.peerID else {
+                        return ""
+                }
+                guard let onlineData = AccountOnChain.Cache[uid] else{
+                        return uid
+                }
+                guard let name = onlineData.name, name.count > 0 else{
+                        return uid
                 }
                 return name
         }

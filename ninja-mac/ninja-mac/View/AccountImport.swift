@@ -14,6 +14,7 @@ struct AccountImport: View {
         @ObservedObject var wallet:Wallet
         @State var showAuth:Bool=false
         @State var showTips:Bool=false
+        @State var needDoubleCheck:Bool=false
         @State var alertMessage:String = ""
         @State var filePath:String = ""
         
@@ -65,6 +66,7 @@ struct AccountImport: View {
                                         return
                                 }
                                 showAuth = true
+                                self.needDoubleCheck = false
                         }, label:{
                                 Text("Import Ninja")
                                         .font(.title3)
@@ -83,6 +85,7 @@ struct AccountImport: View {
                         
                         Button(action: {
                                 self.showAuth = true
+                                self.needDoubleCheck = true
                         }, label:{
                                 Text("Create Account")
                                         .font(.title3)
@@ -94,7 +97,7 @@ struct AccountImport: View {
                                 .sheet(isPresented: $showAuth) {
                                         PasswordView(isVisible: $showAuth,
                                                      callback: self.createNewAccount,
-                                                     doubleCheck: true)
+                                                     doubleCheck: needDoubleCheck)
                                 }
                         
                         Spacer()
@@ -106,7 +109,7 @@ struct AccountImport: View {
                 .sheet(isPresented: $showAuth) {
                         PasswordView(isVisible: $showAuth,
                                      callback: self.unlockTheInputWalletJson,
-                        doubleCheck: false)
+                                     doubleCheck: false)
                 }
         }
         private func loadWalletQRFile(){

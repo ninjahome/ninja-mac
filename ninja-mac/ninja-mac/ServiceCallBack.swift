@@ -46,12 +46,27 @@ struct ServiceCallBack{
                                 return 0
                         }
                         
-                        LatestChatManager.shared.Update(from: String(cString: sender),
-                                                        msgTyp: MsgType(rawValue: data[0]) ?? .Txt,
-                                                        timpStamp: Int64(time),
-                                                        isGrp: false)
+                        let pid = String(cString: sender)
+                       
+                        MessageManager.newPeerMsg(from: pid, msg: data, timpStamp: Int64(time))
                         return 1
                         
+                }
+                
+                callBack.grpMsg = {
+                        (from, gid, decoded, time) in
+                        guard let sender = from, let groupID = gid, let d = decoded else{
+                                return 0
+                        }
+                        
+                        guard let data = String(cString: d).data(using: .utf8) else{
+                                return 0
+                        }
+                        let pid = String(cString: sender)
+                        let gid = String(cString: groupID)
+                        
+                        MessageManager.newGroupMsg(from: pid, groupID: gid, msg: data, timpStamp: Int64(time))
+                        return 1
                 }
                 
                 callBack.nodeChanged = { bytChar in

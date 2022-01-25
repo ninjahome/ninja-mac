@@ -27,15 +27,6 @@ extension String {
         }
 }
 
-
-
-public let itemFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .medium
-        return formatter
-}()
-
 func pickFile(types:[UTType])->URL?{
         
         let dialog = NSOpenPanel();
@@ -104,3 +95,25 @@ func toChatMsgTime(date:Date)->String{
         format.dateFormat = "MM-dd HH:mm"
         return format.string(from: date)
 }
+
+func toLastMsgTime(date:Date)->String{
+        
+        let calendar = Calendar.current
+        
+        let format = DateFormatter()
+        if calendar.isDateInToday(date){
+                format.dateFormat = "HH:mm"
+                return format.string(from: date)
+        }
+        format.dateFormat = "YY/MM/dd"
+        return format.string(from: date)
+}
+
+
+
+public let itemFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .medium
+        return formatter
+}()

@@ -37,6 +37,7 @@
 		69BDD39627917E8D00EF76DE /* MessageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BDD39527917E8D00EF76DE /* MessageHeader.swift */; };
 		69BDD39827917E9F00EF76DE /* MessageBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BDD39727917E9F00EF76DE /* MessageBody.swift */; };
 		69C65D8C279A33E900EEB9A5 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C65D8B279A33E900EEB9A5 /* QRCodeView.swift */; };
+		69DA4922279FEA310017E55F /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DA4921279FEA310017E55F /* MessageManager.swift */; };
 		69FBC6B3279A8DAA00929C76 /* AccountOnChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FBC6B2279A8DAA00929C76 /* AccountOnChain.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		69BDD39527917E8D00EF76DE /* MessageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageHeader.swift; sourceTree = "<group>"; };
 		69BDD39727917E9F00EF76DE /* MessageBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBody.swift; sourceTree = "<group>"; };
 		69C65D8B279A33E900EEB9A5 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		69DA4921279FEA310017E55F /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		69FBC6B2279A8DAA00929C76 /* AccountOnChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOnChain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +186,7 @@
 				69BDD39327902D6900EF76DE /* ModelData.swift */,
 				698D25F427981A9A00D9A6F1 /* Wallet.swift */,
 				69FBC6B2279A8DAA00929C76 /* AccountOnChain.swift */,
+				69DA4921279FEA310017E55F /* MessageManager.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				69A5B19C27992A99001E96EF /* PasswordView.swift in Sources */,
 				698CE96B278BFA31009D8074 /* MainView.swift in Sources */,
 				6984D705278E89C100D2F0D7 /* searchView.swift in Sources */,
+				69DA4922279FEA310017E55F /* MessageManager.swift in Sources */,
 				69BC6672278D808C00EB2E2C /* MessageMainView.swift in Sources */,
 				69BC6678278D8CCA00EB2E2C /* ContactMainView.swift in Sources */,
 				698D25F32798017100D9A6F1 /* LoginView.swift in Sources */,

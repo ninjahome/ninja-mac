@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LatestMsgView: View {
-        @State var lastMsg: CDMsgLatest?
-        var contact:AccountOnChain?
+        var lastMsg: CDMsgLatest
+        @State var contact:AccountOnChain?
         
         var body: some View {
                 HStack{
@@ -29,7 +29,7 @@ struct LatestMsgView: View {
                                                 .foregroundColor(.secondary)
                                 }
                                 Spacer().frame(height: 5)
-                                Text("lastTxt")
+                                Text(lastMsg.lastMsg ?? "")
                                         .font(.subheadline)
                                         .foregroundColor(.secondary)
                         }
@@ -39,7 +39,7 @@ struct LatestMsgView: View {
         }
         
         private func getName()->String{
-                guard let pid = lastMsg?.peerID else{
+                guard let pid = lastMsg.peerID else{
                         return "unknown"
                 }
                 guard let acc = AccountOnChain.Cache[pid] else{
@@ -52,7 +52,7 @@ struct LatestMsgView: View {
         }
         
         private func getTime()->String{
-                guard let date = lastMsg?.timestamp else{
+                guard let date = lastMsg.timestamp else{
                         return "now"
                 }
                 
@@ -60,7 +60,7 @@ struct LatestMsgView: View {
         }
         private func getAvatar()->NSImage{
                 let deafult = NSImage(named: "logo")!
-                guard let pid = lastMsg?.peerID else{
+                guard let pid = lastMsg.peerID else{
                         return deafult
                 }
                 guard let acc = AccountOnChain.Cache[pid] else{
@@ -76,6 +76,6 @@ struct LatestMsgView: View {
 
 struct AvatarView_Previews: PreviewProvider {
         static var previews: some View {
-                LatestMsgView()
+                LatestMsgView(lastMsg: CDMsgLatest())
         }
 }

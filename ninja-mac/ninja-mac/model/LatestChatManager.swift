@@ -8,20 +8,21 @@
 import Foundation
 import SwiftUI
 
+
 enum MsgType :UInt8{
         case Txt = 1, Location, Image,  Voice,  File
         var Desc:String {
                 switch self{
                 case .Txt:
-                        return "Text"
+                        return "Crypto Text"
                 case .Location:
-                        return "Location"
+                        return "[Location]"
                 case .Image:
-                        return "Image"
+                        return "[Image]"
                 case .Voice:
-                        return "Voice"
+                        return "[Voice]"
                 case .File:
-                        return "File"
+                        return "[File]"
                 }
         }
 }
@@ -58,7 +59,7 @@ struct LatestChatManager{
                 }
                 
                 obj.lastMsg  = msgTyp.Desc
-                obj.timestamp = Date.init(timeIntervalSince1970: TimeInterval(timpStamp))
+                obj.timestamp = Date.init(timeIntervalSince1970: TimeInterval(timpStamp / 1000))
         }
         
         func Load(pid:String)->CDMsgLatest?{

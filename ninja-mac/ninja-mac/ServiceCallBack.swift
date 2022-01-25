@@ -74,6 +74,7 @@ struct ServiceCallBack{
                                 return
                         }
                         
+                        NSLog("------->self meta update by callback")
                         AccountOnChain.UpdateSelfMeata(jsonData:String(cString: data))
                 }
                 

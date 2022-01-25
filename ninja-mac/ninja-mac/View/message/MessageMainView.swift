@@ -12,10 +12,16 @@ struct MessageMainView: View {
         @State private var searchText:String = ""
         
         @Environment(\.managedObjectContext) private var viewContext
+        @EnvironmentObject var wallet:Wallet
+        
         @FetchRequest(
-                sortDescriptors: [NSSortDescriptor(keyPath: \CDMsgLatest.timestamp, ascending: true)],
-                animation: .default)
-        private var items: FetchedResults<CDMsgLatest>
+            entity: CDMsgLatest.entity(),
+            sortDescriptors: [
+                NSSortDescriptor(keyPath: \CDMsgLatest.peerID, ascending: true),
+            ],
+            predicate: NSPredicate(format: "owner == %@", "NJ5Y3w9m9Bhxw9phnGhm3TRoBanF3mr91TQNjciMnAEuFg")
+        )private var items: FetchedResults<CDMsgLatest>
+//        var items: [CDMsgLatest] = []
         
         @State var selected: CDMsgLatest? = nil
         @State private var selectedIdx: Int = 0
@@ -30,19 +36,11 @@ struct MessageMainView: View {
                                 List(selection: $selected){
                                         ForEach(items, id: \.self){
                                                 item in
-                                                LatestMsgView(lastMsg: $selected)
+//                                                LatestMsgView(lastMsg: $selected)
                                         }
                                 }.background(.red)
-                                //                .toolbar{
-                                //                    ToolbarItem {
-                                //                        Button(action: addItem) {
-                                //                            Label("Add Item", systemImage: "plus")
-                                //                        }
-                                //                    }
-                                //                }
-                                //.padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: -15))
-                                        .listStyle(.plain)
-                                        .ignoresSafeArea()
+                                .listStyle(.plain)
+                                .ignoresSafeArea()
                         }
                         .frame(minWidth: 150, idealWidth: 200, maxWidth: 300, maxHeight: .infinity)
                         .edgesIgnoringSafeArea(.all)
@@ -54,7 +52,7 @@ struct MessageMainView: View {
                         }else{
                                 VStack(spacing:0){
                                         
-                                        MessageHeader(userName: $selected)
+                                        MessageHeader(latestMsg: $selected)
                                         Divider()
                                         MessageBody()
                                         MessageInput()
@@ -68,6 +66,13 @@ struct MessageMainView: View {
                         if items.count > selectedIdx {
                                 selected = items[selectedIdx]
                         }
+                        
+//                        for item in items {
+//                                print(item.peerID)
+//                                print(item.owner)
+//                                print(item.peerName == nil)
+//                                print(item.timestamp)
+//                        }
                 }
         }
         

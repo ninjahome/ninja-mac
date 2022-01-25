@@ -9,12 +9,12 @@ import SwiftUI
 
 struct MessageHeader: View {
         
-        @Binding  var userName:CDMsgLatest?;
+        @Binding  var latestMsg:CDMsgLatest?;
         
         var body: some View {
                 HStack(){
                         
-                        Text("\(getTime(msg:userName))")
+                        Text("\(getPeerName(msg:latestMsg))")
                                 .font(.custom("HelveticaNeue", size: 15))
                         Spacer()
                         Button(action: addItem) {
@@ -30,12 +30,11 @@ struct MessageHeader: View {
                 
         }
         
-        private func getTime(msg:CDMsgLatest?)-> String{
-                guard let date = msg?.timestamp else{
-                        return "no title"
+        private func getPeerName(msg:CDMsgLatest?)-> String{
+                guard let name = msg?.peerName, name.count > 0 else{
+                        return msg?.peerID ?? ""
                 }
-                
-                return itemFormatter.string(from: date)
+                return name
         }
         
         private func addItem(){
@@ -46,6 +45,6 @@ struct MessageHeader: View {
 struct ChatHeader_Previews: PreviewProvider {
         @State static var name:CDMsgLatest?
         static var previews: some View {
-                MessageHeader(userName: $name)
+                MessageHeader(latestMsg: $name)
         }
 }

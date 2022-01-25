@@ -14,7 +14,7 @@ struct AccountImport: View {
         @ObservedObject var wallet:Wallet
         @State var showAuth:Bool=false
         @State var showTips:Bool=false
-        @State var needDoubleCheck:Bool=false
+        @State var showImport:Bool=false
         @State var alertMessage:String = ""
         @State var filePath:String = ""
         
@@ -65,8 +65,7 @@ struct AccountImport: View {
                                         alertMessage = "Input your wallet json string please!"
                                         return
                                 }
-                                showAuth = true
-                                self.needDoubleCheck = false
+                                showImport = true
                         }, label:{
                                 Text("Import Ninja")
                                         .font(.title3)
@@ -85,7 +84,6 @@ struct AccountImport: View {
                         
                         Button(action: {
                                 self.showAuth = true
-                                self.needDoubleCheck = true
                         }, label:{
                                 Text("Create Account")
                                         .font(.title3)
@@ -97,7 +95,7 @@ struct AccountImport: View {
                                 .sheet(isPresented: $showAuth) {
                                         PasswordView(isVisible: $showAuth,
                                                      callback: self.createNewAccount,
-                                                     doubleCheck: needDoubleCheck)
+                                                     doubleCheck: true)
                                 }
                         
                         Spacer()
@@ -106,8 +104,8 @@ struct AccountImport: View {
                 .padding(EdgeInsets(top: 30, leading: 35, bottom: 10, trailing: 35))
                 .frame(width: 320, height: 480)
                 .background(.white)
-                .sheet(isPresented: $showAuth) {
-                        PasswordView(isVisible: $showAuth,
+                .sheet(isPresented: $showImport) {
+                        PasswordView(isVisible: $showImport,
                                      callback: self.unlockTheInputWalletJson,
                                      doubleCheck: false)
                 }

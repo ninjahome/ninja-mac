@@ -11,7 +11,6 @@ import ninjaLib
 final class AppDelegate: NSObject, NSApplicationDelegate {
         @AppStorage("save_last_usable_service_ip") var endPoint: String = ""
         let InfuraToken:String = "a3a5c09826a246d0bfbef8084b81df1f"
-        let DebugMode:Bool = true
         let NetworkID:Int8 = 5
         let DeviceType_Mac = 3
         
@@ -26,7 +25,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                          NetworkID,
                          cb)
                 
-                setPushParam("".toGoStr(), GoInt(DeviceType_Mac), DebugMode ? 1: 0)
+                setPushParam("".toGoStr(), GoInt(DeviceType_Mac))
         }
 }
 

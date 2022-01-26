@@ -81,7 +81,7 @@ extern char* groupImage(char* b, GoInt sz);
 extern void addImg(GoSlice img);
 extern char* commitImg();
 extern void initAPP(GoString endPoint, GoString infuraToken, GoInt8 networkID, Interface callback);
-extern void setPushParam(GoString devToken, GoInt devType, GoUint8 debug);
+extern void setPushParam(GoString devToken, GoInt devType);
 extern char* online();
 extern GoFloat32 convertBalance(GoInt b);
 extern char* accountDetail(GoString uid);
